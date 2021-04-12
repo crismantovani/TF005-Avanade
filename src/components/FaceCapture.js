@@ -1,10 +1,15 @@
-// import './App.css';
 import React from 'react';
 import Webcam from 'react-webcam';
 
-const WebcamCapture = () => {
+const videoConstraints = {
+  facingMode: 'user',
+};
+
+const FaceCapture = () => {
   const webcamRef = React.useRef(null);
   const [imgSrc, setImgSrc] = React.useState(null);
+  // eslint-disable-next-line no-console
+  console.log(imgSrc);
 
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -15,10 +20,9 @@ const WebcamCapture = () => {
     <>
       <Webcam
         audio={false}
-        width={1280}
-        height={720}
         ref={webcamRef}
         screenshotFormat="image/jpeg"
+        videoConstraints={videoConstraints}
       />
       <button type="button" onClick={capture}>
         Capturar a Foto
@@ -28,4 +32,4 @@ const WebcamCapture = () => {
   );
 };
 
-export default WebcamCapture;
+export default FaceCapture;
