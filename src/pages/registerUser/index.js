@@ -1,13 +1,23 @@
-import React from 'react';
-import FaceCapture from '../../components/FaceCapture/FaceCapture';
+// import React, { useEffect, useState } from 'react';
+// import FaceCapture from '../../components/FaceCapture/FaceCapture';
 
-const RegisterUser = () => (
-  <>
-    <FaceCapture
-      label="Registrar"
-    />
-    <h1>RegisterUser</h1>;
-  </>
-);
+// const RegisterUser = () => {
+//   // const [imgSrc, setImgSrc] = useState();
+//   // const personGroupId = 'laboratoria';
 
-export default RegisterUser;
+//   // function handleFetchUrl(endpoint) {
+//   //   return `https://laboratoriarecog.cognitiveservices.azure.com/face/v1.0/${endpoint}`;
+//   // }
+
+//   // useEffect(() => {
+//   // }, []);
+
+//   return (
+//     <>
+//       <FaceCapture label="Pegar Encomenda" setImgSrc={setImgSrc} />
+//       <h1>RegisterUser</h1>;
+//     </>
+//   );
+// };
+
+// export default RegisterUser;
