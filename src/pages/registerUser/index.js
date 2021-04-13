@@ -11,7 +11,7 @@ const RegisterUser = () => (
     <main>
       <div className='form-container'>
         <FaceCapture
-          label="Cadatrar"
+          label="Cadastrar"
         />
       </div>
     </main>

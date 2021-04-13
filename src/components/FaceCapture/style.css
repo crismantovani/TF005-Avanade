@@ -1,0 +1,25 @@
+.face-capture-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.webcam {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px #C4C4C4;
+  box-shadow: #c4c4c4 0px 0px 10px 2px;
+  margin: 4rem 0 0.5rem 0;
+}
+
+.form-register {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  justify-content: space-between;
+  height: 110px;
+  margin-bottom: 0.5rem;
+}

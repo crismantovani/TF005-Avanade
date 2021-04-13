@@ -5,8 +5,11 @@ import Webcam from 'react-webcam';
 import Button from '../Button';
 import Form from '../Form/Form';
 import Input from '../Input/Input';
+import './style.css';
 
 const videoConstraints = {
+  width: 1280,
+  height: 720,
   facingMode: 'user',
 };
 
@@ -34,17 +37,22 @@ const FaceCapture = ({ setImgSrc, label }) => {
   }, [webcamRef, setImgSrc]);
 
   return (
-    <>
+    <main className='face-capture-container'>
       <Webcam
         audio={false}
         ref={webcamRef}
+        width={1280}
+        height={720}
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
+        className='webcam'
       />
       <>
         {location.pathname === path ? (
           <>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form
+              className='form-register'
+              onSubmit={(e) => handleSubmit(e)}>
               <Input
                 type='text'
                 className='form-inputs'
@@ -82,8 +90,13 @@ const FaceCapture = ({ setImgSrc, label }) => {
           null
         )}
       </>
-      <Button buttonText={label} buttonType="button" buttonOnClick={capture} />
-    </>
+      <Button
+        buttonText={label}
+        buttonType="button"
+        buttonOnClick={capture}
+        buttonClass='btn-base'
+      />
+    </main>
   );
 };
 
