@@ -69,7 +69,7 @@ const RegisterUser = () => {
         />
         <Button
           buttonType='submit'
-          buttonClass='button-base'
+          buttonClass='btn-base'
           buttonOnClick=''
           buttonText='Cadastrar'
         />
