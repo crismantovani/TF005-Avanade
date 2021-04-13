@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 import React, { useState } from 'react';
+import Button from '../../components/Button';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
-import client from '../../utils/APIconfig';
 import Header from '../../components/Header/Header';
+import client from '../../utils/APIconfig';
 import Footer from '../../components/Footer/Footer';
 
 const PickOrder = () => {
@@ -114,9 +115,11 @@ const PickOrder = () => {
 
   return (
     <>
-      <Header />
+      <Header/>
       <FaceCapture label="Pegar Encomenda" setImgSrc={setImgSrc} />
-      <h1>PickOrder</h1>;
+      <Button
+        buttonText="Pegar pelo Código"
+      />
       <Footer />
     </>
   );
