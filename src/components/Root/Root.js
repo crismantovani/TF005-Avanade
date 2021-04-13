@@ -1,5 +1,5 @@
 import React from 'react';
-import Routes from '../utils/routes';
+import Routes from '../../utils/routes';
 
 const Root = () => <Routes />;
 

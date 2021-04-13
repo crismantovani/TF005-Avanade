@@ -25,4 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 node_modules
 
-z_react_oldsfiles
+src/z_react_oldsfiles

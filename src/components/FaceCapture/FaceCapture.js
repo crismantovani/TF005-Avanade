@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
-import Button from './Button';
+import Button from '../Button';
 
 const videoConstraints = {
   facingMode: 'user',
