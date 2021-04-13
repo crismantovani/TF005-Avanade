@@ -9,7 +9,7 @@ import Footer from '../../components/Footer/Footer';
 
 const PickOrder = () => {
   const [imgSrc, setImgSrc] = useState();
-  const personGroupId = 'laboratoria';
+  const personGroupId = 'avanade';
 
   if (imgSrc) {
     fetch(imgSrc)

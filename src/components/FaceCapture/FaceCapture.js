@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import Button from '../Button';
@@ -10,23 +11,16 @@ const videoConstraints = {
   facingMode: 'user',
 };
 
-const userInfo = {
-  nomeCompleto: '',
-  funcao: '',
-  image: '',
-};
-
-const FaceCapture = ({ setImgSrc, label }) => {
+const FaceCapture = ({
+  setImgSrc, label, setUserData, userData,
+}) => {
   const location = useLocation();
   const path = '/user/register';
   const webcamRef = useRef(null);
-  const [user, setUser] = useState(userInfo);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log(event);
-  };
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
 
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -44,37 +38,30 @@ const FaceCapture = ({ setImgSrc, label }) => {
       <>
         {location.pathname === path ? (
           <>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form>
               <Input
                 type='text'
                 className='form-inputs'
-                value={user.nomeCompleto}
-                onChange={(e) => {
-                  setUser(
-                    {
-                      ...user, nomeCompleto: e.targert.value,
-                    },
-                  );
-                }}
                 placeholder='Nome completo'
                 minLength='3'
                 required
+                onChange={(e) => {
+                  setUserData({
+                    ...userData, fullName: e.target.value,
+                  });
+                }}
               />
               <Input
                 type='text'
                 className='form-inputs'
-                value={user.codigoEntrega}
-                onChange={(e) => {
-                  setUser(
-                    {
-                      ...user, funcao: e.targert.value,
-                    },
-                  );
-                }}
                 placeholder='Função'
                 minLength='3'
-                maxLength='8'
                 required
+                onChange={(e) => {
+                  setUserData({
+                    ...userData, function: e.target.value,
+                  });
+                }}
               />
             </Form>
           </>
