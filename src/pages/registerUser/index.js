@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../../components/Input';
 import Form from '../../components/Form';
+import Button from '../../components/Button/index';
 
 const RegisterUser = () => {
   const handleSubmit = (event) => {
@@ -26,6 +27,20 @@ const RegisterUser = () => {
           minLength="3"
           maxLength="6"
         />
+        <select
+          className="form-inputs"
+          defaultValue="Tamanho da encomenda"
+          required>
+          <option disabled>Tamanho da encomenda</option>
+          <option>Pequeno</option>
+          <option>Médio</option>
+          <option>Grande</option>
+        </select>
+        <Button
+          buttonType="submit"
+          buttonClass="button-base"
+          buttonOnClick=""
+          buttonText="Cadastrar" />
       </Form>
     </div>
   );
