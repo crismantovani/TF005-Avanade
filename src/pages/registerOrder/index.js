@@ -5,6 +5,7 @@ import Input from '../../components/Input/Input';
 import Form from '../../components/Form/Form';
 import Button from '../../components/Button/index';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const userInfo = {
   nomeCompleto: '',
@@ -27,8 +28,10 @@ const RegisterOrder = () => {
   return (
     <>
       <Header />
+      <main>
       <div className='form-container'>
         <Form onSubmit={(e) => handleSubmit(e)}>
+          <h2>Cadastre a encomenda</h2>
           <Input
             type='text'
             className='form-inputs'
@@ -42,7 +45,6 @@ const RegisterOrder = () => {
             }}
             placeholder='Nome completo do destinatário'
             minLength='3'
-            maxLength='8'
             required
           />
           <Input
@@ -80,12 +82,14 @@ const RegisterOrder = () => {
           </select>
           <Button
             buttonType='submit'
-            buttonClass='button-base'
+            buttonClass='btn-base'
             buttonOnClick=''
             buttonText='Cadastrar'
           />
         </Form>
       </div>
+      </main>
+      <Footer />
     </>
   );
 };
