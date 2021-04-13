@@ -1,24 +1,22 @@
-/* eslint-disable space-infix-ops */
-/* eslint-disable no-undef */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '../Button';
 import './style.css';
-import AvanadeLogoName from '../../images/avanade-logo-name.png';
 
-const Header = () => (
+const Header = () => {
+  const history = useHistory();
+
+  return (
     <header className="header">
-    <Button
-      buttonType="submit"
-      buttonClass="button-base"
-      buttonText="BACK-Temporario"
-    />
-    <img
-      src={AvanadeLogoName}
-      id='avanade-logo-name'
-      className='avanade-logo-name'
-      alt='avanade-logo-name'
-    />
+
+      <Button
+        buttonType='button'
+        buttonClass='btn-base'
+        buttonText='BACK-Temporario'
+        buttonOnClick={() => { history.push('/'); }}
+      />
     </header>
-);
+  );
+};
 
 export default Header;
