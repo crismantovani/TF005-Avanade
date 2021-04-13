@@ -8,4 +8,10 @@
 #avanade-logo-name {
   height: 10vmin;
   margin-right: 2vmin;
+  margin-bottom: 1vmin;
+}
+
+.icon-back {
+  height: 6vmin;
+  margin: 2vmin;
 }
