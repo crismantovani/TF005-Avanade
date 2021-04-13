@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
-import FaceCapture from '../../components/FaceCapture';
+import FaceCapture from '../../components/FaceCapture/FaceCapture';
 
 const PickOrder = () => {
   const [imgSrc, setImgSrc] = useState();
@@ -80,8 +80,8 @@ const PickOrder = () => {
 
   return (
     <>
-      <h1>PickOrder</h1>
-      <FaceCapture setImgSrc={setImgSrc} />
+      <FaceCapture label="Pegar Encomenda" setImgSrc={setImgSrc} />
+      <h1>PickOrder</h1>;
     </>
   );
 };

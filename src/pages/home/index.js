@@ -1,10 +1,15 @@
 import React from 'react';
-import FaceCapture from '../../components/FaceCapture';
+import '../../global.css';
+import Button from '../../components/Button';
 
 const Home = () => (
   <>
-    <FaceCapture />
-    <h1>Home</h1>;
+    <h1>Home</h1>
+    <Button
+      buttonType='submit'
+      buttonClass='btn-base btn-register'
+      buttonText='registrar'
+    />
   </>
 );
 
