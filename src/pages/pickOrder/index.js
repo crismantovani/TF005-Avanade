@@ -1,5 +1,5 @@
 import React from 'react';
-import FaceCapture from '../../components/FaceCapture';
+import FaceCapture from '../../components/FaceCapture/FaceCapture';
 
 const PickOrder = () => (
   <>
