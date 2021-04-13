@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 import React, { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
-import Button from './Button';
+import Button from '../Button';
 
 const videoConstraints = {
   facingMode: 'user',
 };
 
-const FaceCapture = () => {
+const FaceCapture = ({ label }) => {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
   // eslint-disable-next-line no-console
@@ -26,7 +27,7 @@ const FaceCapture = () => {
         videoConstraints={videoConstraints}
       />
       <Button
-        buttonText="Capturar Foto"
+        buttonText={label}
         buttonType="button"
         buttonOnClick={capture}
       />
