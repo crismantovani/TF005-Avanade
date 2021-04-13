@@ -3,7 +3,6 @@ import FaceCapture from '../../components/FaceCapture';
 
 const RegisterUser = () => (
   <>
-
     <FaceCapture
       label="Registrar"
     />
