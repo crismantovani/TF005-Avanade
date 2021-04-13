@@ -28,7 +28,7 @@ const FaceCapture = () => {
       <Button
         buttonText="Capturar Foto"
         buttonType="button"
-        onClick={capture}
+        buttonOnClick={capture}
       />
       {imgSrc && <img alt="imagem capturada" src={imgSrc} />}
     </>
