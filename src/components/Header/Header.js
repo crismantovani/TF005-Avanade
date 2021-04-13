@@ -7,7 +7,7 @@ const Header = () => {
   const history = useHistory();
 
   return (
-    <header className="Header">
+    <header className="header">
 
       <Button
         buttonType='button'

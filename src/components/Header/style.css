@@ -1,3 +1,11 @@
 .header {
-    background: #FFFFFF;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#avanade-logo-name {
+  height: 10vmin;
+  margin-right: 2vmin;
 }
