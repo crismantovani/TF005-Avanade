@@ -12,7 +12,7 @@ const FaceCapture = ({ setImgSrc, label }) => {
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImgSrc(imageSrc);
-  }, [webcamRef]);
+  }, [webcamRef, setImgSrc]);
 
   return (
     <>
