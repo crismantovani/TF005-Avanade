@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
+import Button from './Button';
 
 const videoConstraints = {
   facingMode: 'user',
 };
 
 const FaceCapture = () => {
-  const webcamRef = React.useRef(null);
-  const [imgSrc, setImgSrc] = React.useState(null);
+  const webcamRef = useRef(null);
+  const [imgSrc, setImgSrc] = useState(null);
   // eslint-disable-next-line no-console
   console.log(imgSrc);
 
-  const capture = React.useCallback(() => {
+  const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImgSrc(imageSrc);
   }, [webcamRef, setImgSrc]);
@@ -24,9 +25,11 @@ const FaceCapture = () => {
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
       />
-      <button type="button" onClick={capture}>
-        Capturar a Foto
-      </button>
+      <Button
+        buttonText="Capturar Foto"
+        buttonType="button"
+        onClick={capture}
+      />
       {imgSrc && <img alt="imagem capturada" src={imgSrc} />}
     </>
   );
