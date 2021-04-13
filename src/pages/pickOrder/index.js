@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
 import client from '../../utils/APIconfig';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const PickOrder = () => {
   const [imgSrc, setImgSrc] = useState();
@@ -112,8 +114,10 @@ const PickOrder = () => {
 
   return (
     <>
+      <Header />
       <FaceCapture label="Pegar Encomenda" setImgSrc={setImgSrc} />
       <h1>PickOrder</h1>;
+      <Footer />
     </>
   );
 };
