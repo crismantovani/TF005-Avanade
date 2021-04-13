@@ -1,0 +1,53 @@
+ /* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&displaywght@400;500;600;700;800;900&display=swap');
+
+
+/* VARIABLES */
+:root {
+  --orange: #F24405;
+  --white: #FFFFFF;
+}
+
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* GLOBAL STYLING */
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--orange);
+  background-image: url(./images/main-background.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* BASE STYLING */
+.btn-base {
+  position: relative;
+  top: 0;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 0.6rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+}
+
+.btn-register {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25)
+}
