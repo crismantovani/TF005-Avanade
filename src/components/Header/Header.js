@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '../Button';
 import './style.css';
+import AvanadeLogoName from '../../images/avanade-logo-name.png';
+import IconBack from '../../images/icon-back.png';
 
 const Header = () => {
   const history = useHistory();
@@ -9,11 +10,18 @@ const Header = () => {
   return (
     <header className="header">
 
-      <Button
-        buttonType='button'
-        buttonClass='btn-base'
-        buttonText='BACK-Temporario'
-        buttonOnClick={() => { history.push('/'); }}
+      <input
+        className='icon-back'
+        type='image'
+        src={IconBack}
+        alt='icon-back'
+        onClick={() => { history.push('/'); }}
+      />
+      <img
+        src={AvanadeLogoName}
+        id='avanade-logo-name'
+        className='avanade-logo-name'
+        alt='avanade-logo-name'
       />
     </header>
   );
