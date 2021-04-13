@@ -1,14 +1,14 @@
 import React from 'react';
-//import './Header.css'
+import Button from './Button';
 
-export default function Header() {
-  return (
+const Header = () => (
     <header className="Header">
-      <img src={require('../assets/logo.png')} className="Logo" alt="logo />"
-      <nav className="Nav"> 
-        <a href= "/">Home</a> 
-        <a href= "/">Articles</a>
-        <a href= "/">About</a>
-        <button>Logout</button>
-      </nav>
-</headers>
+    <Button
+     buttonType="submit"
+     buttonClass="button-base"
+     buttonText=""
+   />
+    </header>
+);
+
+export default Header;
