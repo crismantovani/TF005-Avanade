@@ -12,9 +12,20 @@ const RegisterUser = () => {
   return (
     <div className="form-container">
       <Form onSubmit={(e) => handleSubmit(e)}>
-        <Input type="text" />
-        <Input type="text" />
-        <Input type="password" />
+        <Input
+          type="text"
+          className="form-inputs"
+          placeholder="Nome completo do destinatário"
+          minLength="3"
+          maxLength="8"
+        />
+        <Input
+          type="text"
+          className="form-inputs"
+          placeholder="Código de entrega"
+          minLength="3"
+          maxLength="6"
+        />
       </Form>
     </div>
   );
