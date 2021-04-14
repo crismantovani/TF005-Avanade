@@ -82,7 +82,7 @@ const RegisterOrder = () => {
           </select>
           <Button
             buttonType='submit'
-            buttonClass='btn-base'
+            buttonClass='btn-bold'
             buttonOnClick=''
             buttonText='Cadastrar'
           />
