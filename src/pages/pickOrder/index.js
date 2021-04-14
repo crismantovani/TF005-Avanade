@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
-import Header from '../../components/Header/Header';
+import Header from '../../components/Header';
 import client from '../../utils/APIconfig';
-import Footer from '../../components/Footer/Footer';
-import Modal from '../../components/Modal/Modal';
+import Footer from '../../components/Footer';
+import Modal from '../../components/Modal';
 
 const PickOrder = () => {
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ const PickOrder = () => {
     })
       .then((response) => {
         if (response.length === 0) {
-          handleResponseModal(true, 'error', 'Sua Face ID não foi detectada, tente novamente! Certifique-se que sua face está desimpendida');
+          handleResponseModal(true, 'error', 'Nenhuma face foi detectada, tente novamente! Certifique-se que sua face está desimpedida');
           setLoading(false);
         } else {
           const faceId = response[0].faceId;
@@ -58,7 +58,7 @@ const PickOrder = () => {
           handleResponseModal(true, 'error', 'Falha interna ao acessar os dados, tente novamente!');
           setLoading(false);
         } else {
-          handleResponseModal(true, 'sucess', `Olá ${person.name}, ${person.userData} da Avanade`);
+          handleResponseModal(true, 'success', `Olá ${person.name}, ${person.userData} da Avanade`);
           setLoading(false);
         }
       });

@@ -1,11 +1,11 @@
 /* eslint-disable comma-dangle */
 // import React, { useState, useEffect } from 'react';
 import React, { useState } from 'react';
-import Input from '../../components/Input/Input';
-import Form from '../../components/Form/Form';
-import Button from '../../components/Button/index';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Input from '../../components/Input';
+import Form from '../../components/Form';
+import Button from '../../components/Button';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const userInfo = {
   nomeCompleto: '',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
+import Footer from '../../components/Footer';
 import logo from '../../images/avanade-logo.png';
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
           Não tem cadastro? <span> <Link to='/user/register'>Registrar-se</Link></span>
         </p>
       </main>
+      <Footer />
     </div>
   </>
   );

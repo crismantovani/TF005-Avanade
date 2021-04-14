@@ -3,8 +3,8 @@ import React, { useCallback, useRef } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import Button from '../Button';
-import Form from '../Form/Form';
-import Input from '../Input/Input';
+import Form from '../Form';
+import Input from '../Input';
 import './style.css';
 
 const videoConstraints = {
