@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
 import logo from '../../images/avanade-logo.png';
@@ -8,16 +8,15 @@ const Home = () => {
 
   return (
     <>
-      <header></header>
       <div className='main-container-base'>
-        <div className='main-logo'>
+        <div className='top-section'>
           <figure>
             <img src={logo} className='main-logo' alt='Logo Avanade' />
           </figure>
         </div>
         <main>
-          <h2>O que você gostaria de fazer?</h2>
-          <div className='container-btn-home'>
+          <section className='bottom-section'>
+            <h2>O que você gostaria de fazer?</h2>
             <Button
               buttonType='button'
               buttonClass='btn-base btn-register btn-centered'
@@ -30,10 +29,10 @@ const Home = () => {
               buttonText='Pegar encomenda'
               buttonOnClick={() => { history.push('/order/pick'); }}
             />
-          </div>
-          <p>
-            Não tem cadastro? <span> <Link to='/user/register'>Registrar-se</Link></span>
-          </p>
+            <p>
+              Não tem cadastro? <span> <Link to='/user/register'>Registrar-se</Link></span>
+            </p>
+          </section>
         </main>
       </div>
     </>

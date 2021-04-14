@@ -50,33 +50,45 @@ span a:hover {
   color: var(--white);
 }
 
- /* BASE STYLING */
-.main-container-base {
+/* BASE STYLING */
+/* .main-container-base {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   align-content: space-between;
-}
+} */
 
 /* .header {
 
  } */
 
-.main-logo {
-  background: var(--bg-image);
+/* .main-logo {
+  background-color: var(--white);
   height: 100%;
 }
-
-.container-top{
+.main-container-login{
+  display: flex;
+  padding: 50%;
+  max-width: 100%;
+	margin: 0 auto;
+  background-image: var(--bg-image);
+	border: 1px solid #ccc;
+} */
+/* .container-top{
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 height: 500px;
-} 
+}  */
 
- /* BUTTON */
+.main-logo {
+  width: 18rem;
+}
+
+
+/* BUTTON */
 .btn-base {
   position: relative;
   top: 0;
@@ -86,17 +98,14 @@ height: 500px;
   font-family: 'Roboto', sans-serif;
   font-size: 1.1rem;
   font-weight: 900;
-  letter-spacing: 0.1rem;
+  justify-content: space-around;
 }
 .btn-register {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25)
 }
 
 .btn-centered {
-  display: block;
+  display: inline-block;
   margin: 0 auto;
 }
 
-.main-logo {
-  width: 18rem;
-}
