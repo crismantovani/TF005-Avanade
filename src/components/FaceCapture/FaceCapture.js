@@ -9,6 +9,8 @@ import Input from '../Input/Input';
 import './style.css';
 
 const videoConstraints = {
+  width: 1280,
+  height: 720,
   facingMode: 'user',
 };
 
@@ -26,17 +28,22 @@ const FaceCapture = ({
   }, [webcamRef, detectFaces, setLoading]);
 
   return (
-    <>
+    <main className='face-capture-container'>
       <Webcam
         audio={false}
         ref={webcamRef}
+        width={1280}
+        height={720}
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
+        className='webcam'
       />
       <>
         {location.pathname === path ? (
           <>
-            <Form>
+            <Form
+              className='form-register'
+            >
               <Input
                 type='text'
                 className='form-inputs'
@@ -71,7 +78,12 @@ const FaceCapture = ({
         <div className='loading'/>
       ) : (
         <>
-        <Button buttonText={label} buttonType="button" buttonOnClick={capture} />
+        <Button
+        buttonText={label}
+        buttonType="button"
+        buttonOnClick={capture}
+        buttonClass='btn-base'
+      />
         {location.pathname !== path ? (
           <Button
             buttonText="Pegar pelo Código"
@@ -81,7 +93,7 @@ const FaceCapture = ({
         )}
         </>
       )}
-    </>
+    </main>
   );
 };
 
