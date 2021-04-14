@@ -12,38 +12,42 @@ const RegisterUser = () => {
     fullName: '',
     function: ''
   });
-  const [imgSrc, setImgSrc] = useState();
+  const [loading, setLoading] = useState(false);
   const personGroupId = 'avanade';
 
-  if (imgSrc) {
-    fetch(imgSrc)
-      .then((res) => res.blob())
-      .then((blob) => {
-        const file = new File([blob], 'Image', {
-          type: 'image/png',
-        });
-
-        client.personGroupPerson.create(personGroupId, {
-          name: userData.fullName, userData: userData.function
-        })
-          .then((user) => {
-            console.log(user);
-            client.personGroupPerson.addFaceFromStream(personGroupId, user.personId, file)
-              .then((userFace) => {
-                if (userFace.persistedFaceId) {
-                  try {
-                    client.personGroup.train(personGroupId);
-                    console.log('Usuário Cadastrado com Sucesso');
-                  } catch (err) {
-                    console.log(err.message);
-                  }
-                } else {
-                  console.log('Face não cadastrada');
-                }
-              });
+  const detectFaces = (image) => {
+    if (image) {
+      fetch(image)
+        .then((res) => res.blob())
+        .then((blob) => {
+          const file = new File([blob], 'Image', {
+            type: 'image/png',
           });
-      });
-  }
+
+          client.personGroupPerson.create(personGroupId, {
+            name: userData.fullName, userData: userData.function
+          })
+            .then((user) => {
+              console.log(user);
+              client.personGroupPerson.addFaceFromStream(personGroupId, user.personId, file)
+                .then((userFace) => {
+                  if (userFace.persistedFaceId) {
+                    try {
+                      client.personGroup.train(personGroupId);
+                      console.log('Usuário Cadastrado com Sucesso');
+                      setLoading(false);
+                    } catch (err) {
+                      console.log(err.message);
+                    }
+                  } else {
+                    console.log('Face não cadastrada');
+                    setLoading(false);
+                  }
+                });
+            });
+        });
+    }
+  };
 
   return (
     <>
@@ -52,9 +56,11 @@ const RegisterUser = () => {
       <div className='form-container'>
         <FaceCapture
           label="Cadatrar"
-          setImgSrc={setImgSrc}
           setUserData={setUserData}
           userData={userData}
+          loading={loading}
+          setLoading={setLoading}
+          detectFaces={detectFaces}
         />
       </div>
     </main>

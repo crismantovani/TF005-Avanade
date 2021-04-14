@@ -1,31 +1,29 @@
 /* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import Button from '../Button';
 import Form from '../Form/Form';
 import Input from '../Input/Input';
+import './style.css';
 
 const videoConstraints = {
   facingMode: 'user',
 };
 
 const FaceCapture = ({
-  setImgSrc, label, setUserData, userData,
+  label, setUserData, userData, loading, setLoading, detectFaces,
 }) => {
   const location = useLocation();
   const path = '/user/register';
   const webcamRef = useRef(null);
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
-
   const capture = useCallback(() => {
+    setLoading(true);
     const imageSrc = webcamRef.current.getScreenshot();
-    setImgSrc(imageSrc);
-  }, [webcamRef, setImgSrc]);
+    detectFaces(imageSrc);
+  }, [webcamRef, detectFaces, setLoading]);
 
   return (
     <>
@@ -69,7 +67,20 @@ const FaceCapture = ({
           null
         )}
       </>
-      <Button buttonText={label} buttonType="button" buttonOnClick={capture} />
+      {loading ? (
+        <div className='loading'/>
+      ) : (
+        <>
+        <Button buttonText={label} buttonType="button" buttonOnClick={capture} />
+        {location.pathname !== path ? (
+          <Button
+            buttonText="Pegar pelo Código"
+          />
+        ) : (
+          null
+        )}
+        </>
+      )}
     </>
   );
 };
