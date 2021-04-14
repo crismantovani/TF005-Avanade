@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import Modal from '../../components/Modal/Modal';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Modal from '../../components/Modal';
 
 const PickOrderByCode = () => {
   const history = useHistory();

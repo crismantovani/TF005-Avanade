@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
+import Footer from '../../components/Footer';
 import logo from '../../images/avanade-logo.png';
 import './style.css';
 
