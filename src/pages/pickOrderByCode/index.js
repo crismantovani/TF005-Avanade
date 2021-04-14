@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import '../../global.css';
 import Button from '../../components/Button';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';

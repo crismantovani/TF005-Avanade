@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import '../../global.css';
 import Button from '../../components/Button';
 import logo from '../../images/avanade-logo.png';
 

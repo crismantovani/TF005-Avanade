@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable react/prop-types */
 import React, { useCallback, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import Button from '../Button';
 import Form from '../Form/Form';
@@ -17,6 +17,7 @@ const videoConstraints = {
 const FaceCapture = ({
   label, setUserData, userData, loading, setLoading, detectFaces,
 }) => {
+  const history = useHistory();
   const location = useLocation();
   const userPath = '/user/register';
   const orderPath = '/order/pick';
@@ -89,6 +90,7 @@ const FaceCapture = ({
           <Button
             buttonText='Pegar pelo Código'
             buttonClass='btn-base'
+            buttonOnClick={() => { history.push('/order/pick/code'); }}
           />
         ) : (
           null
