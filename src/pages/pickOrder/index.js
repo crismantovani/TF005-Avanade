@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import Button from '../../components/Button';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
 import Header from '../../components/Header/Header';
 import client from '../../utils/APIconfig';
@@ -116,10 +115,7 @@ const PickOrder = () => {
   return (
     <>
       <Header/>
-      <FaceCapture label="Pegar Encomenda" setImgSrc={setImgSrc} />
-      <Button
-        buttonText="Pegar pelo Código"
-      />
+        <FaceCapture label="Pegar Encomenda" setImgSrc={setImgSrc} />
       <Footer />
     </>
   );
