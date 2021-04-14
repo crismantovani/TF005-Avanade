@@ -7,41 +7,51 @@ import client from '../../utils/APIconfig';
 import Footer from '../../components/Footer/Footer';
 
 const PickOrder = () => {
-  const [imgSrc, setImgSrc] = useState();
-  const personGroupId = 'laboratoria';
+  const [loading, setLoading] = useState(false);
+  const personGroupId = 'avanade';
 
-  if (imgSrc) {
-    fetch(imgSrc)
-      .then((res) => res.blob())
-      .then((blob) => {
-        const file = new File([blob], 'Image', {
-          type: 'image/png',
-        });
-
-        client.face.detectWithStream(file, {
-          returnFaceId: true,
-        })
-          .then((response) => {
-            const faceId = response[0].faceId;
-            client.face.identify([faceId], {
-              personGroupId,
-              maxNumOfCandidatesReturned: 1,
-              confidenceThreshold: 0.5,
-            })
-              .then((face) => {
-                const personId = face[0].candidates[0].personId;
-                client.personGroupPerson.get(personGroupId, personId)
-                  .then((person) => {
-                    console.log(`Olá ${person.name} da ${person.userData}`);
-                  });
-              });
+  const detectFaces = (image) => {
+    if (image) {
+      fetch(image)
+        .then((res) => res.blob())
+        .then((blob) => {
+          const file = new File([blob], 'Image', {
+            type: 'image/png',
           });
-      });
-  }
 
-  // function sleep(ms) {
-  //   return new Promise((resolve) => setTimeout(resolve, ms));
-  // }
+          client.face.detectWithStream(file, {
+            returnFaceId: true,
+            recognitionModel: 'recognition_03',
+          })
+            .then((response) => {
+              if (response.length === 0) {
+                console.log('Sua Face ID não foi detectada, tente novamente! Certifique-se que sua face está desimpendida');
+                setLoading(false);
+              } else {
+                const faceId = response[0].faceId;
+                client.face.identify([faceId], {
+                  personGroupId,
+                  maxNumOfCandidatesReturned: 1,
+                  confidenceThreshold: 0.5,
+                })
+                  .then((face) => {
+                    if (!face[0].candidates.length) {
+                      console.log('Sua Face ID não está cadastrada');
+                      setLoading(false);
+                    } else {
+                      const personId = face[0].candidates[0].personId;
+                      client.personGroupPerson.get(personGroupId, personId)
+                        .then((person) => {
+                          console.log(`Olá ${person.name}, ${person.userData} da Avanade`);
+                          setLoading(false);
+                        });
+                    }
+                  });
+              }
+            });
+        });
+    }
+  };
 
   // function handleFetchUrl(endpoint) {
   //   return `https://laboratoriarecog.cognitiveservices.azure.com/face/v1.0/${endpoint}`;
@@ -115,7 +125,12 @@ const PickOrder = () => {
   return (
     <>
       <Header/>
-        <FaceCapture label="Pegar Encomenda" setImgSrc={setImgSrc} />
+      <FaceCapture
+        label="Pegar Encomenda"
+        loading={loading}
+        setLoading={setLoading}
+        detectFaces={detectFaces}
+      />
       <Footer />
     </>
   );

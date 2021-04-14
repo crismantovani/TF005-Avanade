@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import ImgSuccess from '../../images/'
+// import ImgSuccess from '../../images/'
 import './style.css';
 
 const Modal = ({
@@ -18,11 +18,11 @@ const Modal = ({
     <div id={id} className="modal" onClick={handleOutsideClick}>
       <div className="container">
         <div className="content">{children}</div>
-        {modalType === 'success' ? (
+        {/* {modalType === 'success' ? (
           <img />
         ) : (
           <img />
-        )}
+        )} */}
         <p>{mdoalText}</p>
         <button className="close" onClick={onClose}>{buttonText}</button>
       </div>
