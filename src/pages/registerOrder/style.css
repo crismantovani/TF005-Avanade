@@ -1,0 +1,35 @@
+table, th, td {
+    border: 1px solid black;
+    border-spacing: 0;
+    font-size: 14px;
+}
+
+table {
+    margin: 0 auto 50px auto;
+}
+
+td {
+    height: 25px;
+    padding: 0 10px;
+}
+
+th {
+    height: 25px;
+    padding: 0 5px;
+}
+
+.table-title {
+    margin: 50px auto 10px auto;
+    width: 85%;
+    font-size: 16px;
+}
+
+.modal-message {
+    width: 100%;
+}
+
+.more-about-sizes {
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+}
