@@ -5,10 +5,14 @@ import FaceCapture from '../../components/FaceCapture/FaceCapture';
 import Header from '../../components/Header/Header';
 import client from '../../utils/APIconfig';
 import Footer from '../../components/Footer/Footer';
+import Modal from '../../components/Modal/Modal';
 
 const PickOrder = () => {
   const [loading, setLoading] = useState(false);
   const personGroupId = 'avanade';
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const [sendModalType, setSendModalType] = useState('');
 
   const detectFaces = (image) => {
     if (image) {
@@ -25,6 +29,9 @@ const PickOrder = () => {
           })
             .then((response) => {
               if (response.length === 0) {
+                setIsModalVisible(true);
+                setSendModalType('error');
+                setModalMessage('Sua Face ID não foi detectada, tente novamente! Certifique-se que sua face está desimpendida');
                 console.log('Sua Face ID não foi detectada, tente novamente! Certifique-se que sua face está desimpendida');
                 setLoading(false);
               } else {
@@ -42,6 +49,9 @@ const PickOrder = () => {
                       const personId = face[0].candidates[0].personId;
                       client.personGroupPerson.get(personGroupId, personId)
                         .then((person) => {
+                          setIsModalVisible(true);
+                          setSendModalType('success');
+                          setModalMessage(`Olá ${person.name}, ${person.userData} da Avanade`);
                           console.log(`Olá ${person.name}, ${person.userData} da Avanade`);
                           setLoading(false);
                         });
@@ -124,6 +134,7 @@ const PickOrder = () => {
 
   return (
     <>
+      {isModalVisible ? (<Modal modalType={sendModalType} modalText={modalMessage} onClose={() => setIsModalVisible(false)}></Modal>) : null}
       <Header/>
       <FaceCapture
         label="Validar Acesso"

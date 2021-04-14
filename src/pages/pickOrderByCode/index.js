@@ -4,12 +4,17 @@ import '../../global.css';
 import Button from '../../components/Button';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import Modal from '../../components/Modal/Modal';
 
 const PickOrderByCode = () => {
   const history = useHistory();
 
   return (<>
     <Header />
+    <Modal
+      modalType='error'
+      modalText='errouuu'
+    />
     <main>
       <h2>PÁGINA NOVA - Pegar pelo Código</h2>
       <Button

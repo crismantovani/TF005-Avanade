@@ -55,7 +55,7 @@ const RegisterUser = () => {
     <main>
       <div className='form-container'>
         <FaceCapture
-          label="Cadatrar"
+          label="Cadastrar"
           setUserData={setUserData}
           userData={userData}
           loading={loading}
