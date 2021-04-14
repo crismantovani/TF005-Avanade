@@ -1,11 +1,11 @@
 /* eslint-disable comma-dangle */
 import React, { useState } from 'react';
 import Button from '../../components/Button';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import Modal from '../../components/Modal/Modal';
-import Form from '../../components/Form/Form';
-import Input from '../../components/Input/Input';
+import Form from '../../components/Form';
+import Input from '../../components/Input';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Modal from '../../components/Modal';
 import LockerFace from '../../utils/LockerFaceAPIconfig';
 
 const PickOrderByCode = () => {
@@ -22,7 +22,6 @@ const PickOrderByCode = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.value);
     const method = {
       method: 'GET',
       headers: {
@@ -34,9 +33,13 @@ const PickOrderByCode = () => {
       .then((codeDB) => {
         const pickOrder = codeDB.filter((i) => i.code === Number(tracking));
         if (pickOrder.length === 0) {
-          handleResponseModal(true, 'error', 'Sua encomenda não foi localizada');
+          handleResponseModal(true, 'error', 'Código não encontrado');
         } else {
-          // pickOrder.map((index)
+          pickOrder.map(({ name, lockerID }) => {
+            const idLocker = lockerID.toUpperCase();
+            const message = `Código validado com sucesso! \n Olá ${name}, sua encomenda está localizada no ${idLocker}`;
+            return handleResponseModal(true, 'success', message);
+          });
         }
       });
   }

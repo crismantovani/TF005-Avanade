@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
 import client from '../../utils/APIconfig';
-import Modal from '../../components/Modal/Modal';
+import Modal from '../../components/Modal';
 
 const RegisterUser = () => {
   const [userData, setUserData] = useState({
@@ -37,7 +37,7 @@ const RegisterUser = () => {
   const trainingFace = () => {
     try {
       client.personGroup.train(personGroupId);
-      handleResponseModal(true, 'sucess', 'Usuário Cadastrado com Sucesso');
+      handleResponseModal(true, 'success', 'Usuário Cadastrado com Sucesso');
       setLoading(false);
     } catch (err) {
       handleResponseModal(true, 'error', err.message);
@@ -59,6 +59,38 @@ const RegisterUser = () => {
       });
   };
 
+  const detectFace = (image) => {
+    client.face.detectWithStream(image, {
+      returnFaceId: true,
+      recognitionModel: 'recognition_03',
+    })
+      .then((response) => {
+        if (response.length === 0) {
+          handleResponseModal(true, 'error', 'Sua Face ID não foi detectada, tente novamente! Certifique-se que sua face está desimpendida');
+          setLoading(false);
+        } else {
+          const faceId = response[0].faceId;
+          identifyFace(faceId, image);
+        }
+      });
+  };
+
+  const identifyFace = (faceId, image) => {
+    client.face.identify([faceId], {
+      personGroupId,
+      maxNumOfCandidatesReturned: 1,
+      confidenceThreshold: 0.8,
+    })
+      .then((face) => {
+        if (!face[0].candidates.length) {
+          createUser(image);
+        } else {
+          handleResponseModal(true, 'error', 'Sua Face ID já está cadastrada no sistema');
+          setLoading(false);
+        }
+      });
+  };
+
   const authenticateFace = (image) => {
     if (image) {
       fetch(image)
@@ -67,7 +99,7 @@ const RegisterUser = () => {
           const file = new File([blob], 'Image', {
             type: 'image/png',
           });
-          createUser(file);
+          detectFace(file);
         });
     }
   };
