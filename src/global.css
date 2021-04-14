@@ -21,7 +21,7 @@ box-sizing: border-box;
  /* GLOBAL STYLING */
 html {
 font-family: 'Roboto', sans-serif;
-font-size: 16px;
+font-size: clamp(1em, 1em + 1vw, 1.5em);
 color: var(--white);
 }
 
@@ -29,12 +29,15 @@ h1 {
 font-weight: 700;
 }
 
-body {
+img {
+  height: 40vh;
+}
+
 /* background-color: var(--orange);
 background-image: url(./images/background-orange-waves.jpg);
 background-repeat: no-repeat;
 background-size: auto; */
-}
+
 
 span {
   text-decoration: none;
@@ -51,23 +54,19 @@ span a:hover {
 }
 
 /* BASE STYLING */
-/* .main-container-base {
+.main-container-base {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   align-content: space-between;
-} */
+} 
 
 /* .header {
 
  } */
 
-/* .main-logo {
-  background-color: var(--white);
-  height: 100%;
-}
 .main-container-login{
   display: flex;
   padding: 50%;
@@ -75,17 +74,14 @@ span a:hover {
 	margin: 0 auto;
   background-image: var(--bg-image);
 	border: 1px solid #ccc;
-} */
-/* .container-top{
+} 
+
+.container-top{
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 height: 500px;
-}  */
-
-.main-logo {
-  width: 18rem;
-}
+} 
 
 
 /* BUTTON */
@@ -96,16 +92,24 @@ height: 500px;
   border: none;
   border-radius: 0.6rem;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(1em, 1em + 1vw, 1.5em);
   font-weight: 900;
   justify-content: space-around;
 }
 .btn-register {
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25)
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn-centered {
-  display: inline-block;
   margin: 0 auto;
 }
 
+
+
+/* RESPONSIVENESS  */
+@media screen and (max-width: 495px) {
+  .btn-base {
+      display: grid;
+      grid-template-columns: 100px 100px;
+        }  
+  }

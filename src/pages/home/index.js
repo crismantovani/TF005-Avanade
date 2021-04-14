@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
 import logo from '../../images/avanade-logo.png';
+import './style.css';
 
 const Home = () => {
   const history = useHistory();
@@ -11,7 +12,7 @@ const Home = () => {
       <div className='main-container-base'>
         <div className='top-section'>
           <figure>
-            <img src={logo} className='main-logo' alt='Logo Avanade' />
+            <img src={logo} alt='Logo Avanade' />
           </figure>
         </div>
         <main>
@@ -30,7 +31,7 @@ const Home = () => {
               buttonOnClick={() => { history.push('/order/pick'); }}
             />
             <p>
-              Não tem cadastro? <span> <Link to='/user/register'>Registrar-se</Link></span>
+              Não tem cadastro? <span><Link to='/user/register'>Registrar-se</Link></span>
             </p>
           </section>
         </main>
