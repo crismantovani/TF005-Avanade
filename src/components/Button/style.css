@@ -1,0 +1,26 @@
+.btn-bold {
+  position: absolute;
+  width: 15.563rem;
+  height: 3.75rem;
+  background: #FFFFFF;
+  border-color: #F24405;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #F24405;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.313rem;
+}
+
+.btn-normal {
+  position: absolute;
+  width: 15.563rem;
+  height: 3.75rem;
+  background: #FFFFFF;
+  border-color: #F24405;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #F24405;
+  font-size: 1.125rem;
+  line-height: 1.313rem;
+}
