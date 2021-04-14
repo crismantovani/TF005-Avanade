@@ -20,12 +20,6 @@ const Modal = ({
     <div id={id} className="modal" onClick={handleOutsideClick}>
       <div className="container">
         <div className="content">{children}</div>
-        {modalType === 'success' ? (
-          <img className='icon-modal' alt='icon-success'src={ImgSuccess}/>
-        ) : (
-          <img className='icon-modal' alt='icon-error' src={ImgError}/>
-        )}
-        <p>{modalText}</p>
         <Input
           className='icon-modal-close'
           type='image'
@@ -33,6 +27,12 @@ const Modal = ({
           alt='icon-close'
           onClick={onClose}
         />
+        {modalType === 'success' ? (
+          <img className='icon-modal' alt='icon-success'src={ImgSuccess}/>
+        ) : (
+          <img className='icon-modal' alt='icon-error' src={ImgError}/>
+        )}
+        <p>{modalText}</p>
       </div>
     </div>
   );
