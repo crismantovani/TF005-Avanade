@@ -1,0 +1,23 @@
+.top-section {
+  position: absolute;
+  height: 50%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 50%;
+  background-color:var(--white);
+  text-align:center;
+}
+
+.bottom-section {
+  padding-top: 2rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--orange);
+  background-image: var(--bg-image);
+  text-align: center;
+  color:#FFFFFF;
+}

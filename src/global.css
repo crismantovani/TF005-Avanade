@@ -2,52 +2,131 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&displaywght@400;500;600;700;800;900&display=swap');
 
 
-/* VARIABLES */
+ /* VARIABLES */
 :root {
   --orange: #F24405;
   --white: #FFFFFF;
+  --bg-image: url(./images/background-orange-waves.jpg);
 }
 
 
-/* RESET */
+ /* RESET */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
+/* CLEARFIX */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
 
-/* GLOBAL STYLING */
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+ /* GLOBAL STYLING */
 html {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+font-family: 'Roboto', sans-serif;
+font-size: 1.1rem;
+color: var(--white);
+}
+
+h1 {
+font-weight: 700;
+}
+
+img {
+  height: 40vh;
 }
 
 body {
-  background-color: var(--orange);
-  background-image: url(./images/background-orange-waves.jpg);
-  background-repeat: no-repeat;
-  background-size: auto;
+background-color: var(--orange);
+background-image: url(./images/background-orange-waves.jpg);
+background-repeat: no-repeat;
+background-size: auto;
 }
 
-a {
+
+span {
   text-decoration: none;
 }
 
-/* BASE STYLING */
-.btn-base {
-  position: relative;
-  top: 0;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 0.6rem;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 900;
-  letter-spacing: 0.1rem;
-  text-transform: capitalize;
+span a {
+  text-decoration: underline;
+  color: var(--white);
 }
 
+span a:hover {
+  text-decoration: none;
+  color: var(--white);
+}
+
+/* BASE STYLING */
+.main-container-base {
+  display: flex;
+  max-width: 1128px;
+  margin: 0 auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+} 
+
+/* .header {
+
+ } */
+
+.main-container-login{
+  display: flex;
+  padding: 50%;
+  max-width: 100%;
+	margin: 0 auto;
+  background-image: var(--bg-image);
+	border: 1px solid #ccc;
+} 
+
+.divider{
+  margin: 3rem;
+  justify-content: space-around;
+}
+
+/* BUTTON */
+.btn-base {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.6rem;
+  text-align: center;
+  font-weight: 900;
+  margin-left :5px
+}
 .btn-register {
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25)
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.register-user{
+  padding: 1rem;
+  font-weight: 400;
+}
+
+/* RESPONSIVENESS  */
+@media screen and (max-width: 495px) {
+  .btn-base {
+    display: inline-block;
+    grid-template-columns: 100px;
+    margin: 0 5px 25px 10px;
+    width: 250px;
+    height: 60px;
+    }  
 }
