@@ -4,7 +4,7 @@ import ImgSuccess from '../../images/icon-succed.png';
 import ImgError from '../../images/icon-error.png';
 import ImgClose from '../../images/icon-close.png';
 import './style.css';
-import Input from '../Input/Input';
+import Input from '../Input';
 
 const Modal = ({
   id = 'modal', onClose = () => {},
@@ -32,7 +32,7 @@ const Modal = ({
         ) : (
           <img className='icon-modal' alt='icon-error' src={ImgError}/>
         )}
-        <p>{modalText}</p>
+        <p className='modal-message'>{modalText}</p>
       </div>
     </div>
   );

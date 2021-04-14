@@ -14,17 +14,28 @@
 .container {
   background-color: #ffffff;
   color: #383636;
-  width: 60%;
-  height: 60%;
+  width: 350px;
+  height: 350px;
   border-radius: 0.5rem;
   box-shadow: 2px 2px 8px 0px #383636;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
 }
 
 .icon-modal {
-  width: 50px;
+  width: 150px;
+  margin: 15px 0 40px 0;
 }
 
 .icon-modal-close {
   width: 25px;
+  align-self: flex-end;
+}
+
+.modal-message {
+  width: 85%;
+  font-size: 18px;
 }
