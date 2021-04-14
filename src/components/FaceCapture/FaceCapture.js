@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
 import React, { useCallback, useRef } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
@@ -15,7 +14,7 @@ const videoConstraints = {
 };
 
 const FaceCapture = ({
-  label, setUserData, userData, loading, setLoading, detectFaces,
+  label, setUserData, userData, loading, setLoading, authenticateFace,
 }) => {
   const history = useHistory();
   const location = useLocation();
@@ -26,8 +25,8 @@ const FaceCapture = ({
   const capture = useCallback(() => {
     setLoading(true);
     const imageSrc = webcamRef.current.getScreenshot();
-    detectFaces(imageSrc);
-  }, [webcamRef, detectFaces, setLoading]);
+    authenticateFace(imageSrc);
+  }, [webcamRef, authenticateFace, setLoading]);
 
   return (
     <main className='face-capture-container'>
