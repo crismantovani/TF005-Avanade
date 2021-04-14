@@ -126,7 +126,7 @@ const PickOrder = () => {
     <>
       <Header/>
       <FaceCapture
-        label="Pegar Encomenda"
+        label="Validar Acesso"
         loading={loading}
         setLoading={setLoading}
         detectFaces={detectFaces}

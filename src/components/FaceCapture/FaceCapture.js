@@ -18,7 +18,8 @@ const FaceCapture = ({
   label, setUserData, userData, loading, setLoading, detectFaces,
 }) => {
   const location = useLocation();
-  const path = '/user/register';
+  const userPath = '/user/register';
+  const orderPath = '/order/pick';
   const webcamRef = useRef(null);
 
   const capture = useCallback(() => {
@@ -39,7 +40,7 @@ const FaceCapture = ({
         className='webcam'
       />
       <>
-        {location.pathname === path ? (
+        {location.pathname === userPath ? (
           <>
             <Form
               className='form-register'
@@ -79,19 +80,20 @@ const FaceCapture = ({
       ) : (
         <>
         <Button
-        buttonText={label}
-        buttonType="button"
-        buttonOnClick={capture}
-        buttonClass='btn-base'
-      />
-        {location.pathname !== path ? (
+          buttonText={label}
+          buttonType='button'
+          buttonOnClick={capture}
+          buttonClass='btn-base'
+        />
+        {location.pathname === orderPath ? (
           <Button
-            buttonText="Pegar pelo Código"
+            buttonText='Pegar pelo Código'
+            buttonClass='btn-base'
           />
         ) : (
           null
         )}
-        </>
+      </>
       )}
     </main>
   );
