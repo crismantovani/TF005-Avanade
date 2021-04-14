@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-// import ImgSuccess from '../../images/'
+import ImgSuccess from '../../images/icon-succed.png';
+import ImgError from '../../images/icon-error.png';
+import ImgClose from '../../images/icon-close.png';
 import './style.css';
+import Input from '../Input/Input';
 
 const Modal = ({
   id = 'modal', onClose = () => {},
   children,
   modalType,
-  mdoalText,
-  buttonText,
+  modalText,
 }) => {
   const handleOutsideClick = (e) => {
     if (e.target.id === id) onClose();
@@ -18,13 +20,19 @@ const Modal = ({
     <div id={id} className="modal" onClick={handleOutsideClick}>
       <div className="container">
         <div className="content">{children}</div>
-        {/* {modalType === 'success' ? (
-          <img />
+        <Input
+          className='icon-modal-close'
+          type='image'
+          src={ImgClose}
+          alt='icon-close'
+          onClick={onClose}
+        />
+        {modalType === 'success' ? (
+          <img className='icon-modal' alt='icon-success'src={ImgSuccess}/>
         ) : (
-          <img />
-        )} */}
-        <p>{mdoalText}</p>
-        <button className="close" onClick={onClose}>{buttonText}</button>
+          <img className='icon-modal' alt='icon-error' src={ImgError}/>
+        )}
+        <p>{modalText}</p>
       </div>
     </div>
   );

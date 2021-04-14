@@ -1,21 +1,65 @@
-/* eslint-disable no-console */
-/* eslint-disable comma-dangle */
-// import React, { useState, useEffect } from 'react';
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
 import client from '../../utils/APIconfig';
+import Modal from '../../components/Modal/Modal';
 
 const RegisterUser = () => {
   const [userData, setUserData] = useState({
     fullName: '',
-    function: ''
+    function: '',
   });
   const [loading, setLoading] = useState(false);
   const personGroupId = 'avanade';
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const [sendModalType, setSendModalType] = useState('');
 
-  const detectFaces = (image) => {
+  const handleResponseModal = (modalVisibility, modalType, message) => {
+    setIsModalVisible(modalVisibility);
+    setSendModalType(modalType);
+    setModalMessage(message);
+  };
+
+  const addFaceToUser = (user, image) => {
+    client.personGroupPerson.addFaceFromStream(personGroupId, user.personId, image)
+      .then((userFace) => {
+        if (userFace.persistedFaceId) {
+          trainingFace();
+        } else {
+          handleResponseModal(true, 'error', 'Face não cadastrada, tente novamente!');
+          setLoading(false);
+        }
+      });
+  };
+
+  const trainingFace = () => {
+    try {
+      client.personGroup.train(personGroupId);
+      handleResponseModal(true, 'sucess', 'Usuário Cadastrado com Sucesso');
+      setLoading(false);
+    } catch (err) {
+      handleResponseModal(true, 'error', err.message);
+      setLoading(false);
+    }
+  };
+
+  const createUser = (image) => {
+    client.personGroupPerson.create(personGroupId, {
+      name: userData.fullName, userData: userData.function,
+    })
+      .then((user) => {
+        if (!userData.fullName && !userData.function) {
+          handleResponseModal(true, 'error', 'Dados insuficientes para completar o cadastro');
+          setLoading(false);
+        } else {
+          addFaceToUser(user, image);
+        }
+      });
+  };
+
+  const authenticateFace = (image) => {
     if (image) {
       fetch(image)
         .then((res) => res.blob())
@@ -23,44 +67,30 @@ const RegisterUser = () => {
           const file = new File([blob], 'Image', {
             type: 'image/png',
           });
-
-          client.personGroupPerson.create(personGroupId, {
-            name: userData.fullName, userData: userData.function
-          })
-            .then((user) => {
-              console.log(user);
-              client.personGroupPerson.addFaceFromStream(personGroupId, user.personId, file)
-                .then((userFace) => {
-                  if (userFace.persistedFaceId) {
-                    try {
-                      client.personGroup.train(personGroupId);
-                      console.log('Usuário Cadastrado com Sucesso');
-                      setLoading(false);
-                    } catch (err) {
-                      console.log(err.message);
-                    }
-                  } else {
-                    console.log('Face não cadastrada');
-                    setLoading(false);
-                  }
-                });
-            });
+          createUser(file);
         });
     }
   };
 
   return (
     <>
+    {isModalVisible ? (
+      <Modal
+        modalType={sendModalType}
+        modalText={modalMessage}
+        onClose={() => setIsModalVisible(false)}
+      />
+    ) : null}
     <Header />
     <main>
       <div className='form-container'>
         <FaceCapture
-          label="Cadatrar"
+          label="Cadastrar"
           setUserData={setUserData}
           userData={userData}
           loading={loading}
           setLoading={setLoading}
-          detectFaces={detectFaces}
+          authenticateFace={authenticateFace}
         />
       </div>
     </main>
