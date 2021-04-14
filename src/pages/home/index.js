@@ -19,24 +19,30 @@ const Home = () => {
         <main>
           <section className='bottom-section'>
             <h2>O que você gostaria de fazer?</h2>
-            <Button
-              buttonType='button'
-              buttonClass='btn-base btn-register btn-centered'
-              buttonText='Entregar uma encomenda'
-              buttonOnClick={() => { history.push('/order/register'); }}
-            />
-            <Button
-              buttonType='button'
-              buttonClass='btn-base btn-register btn-centered'
-              buttonText='Pegar encomenda'
-              buttonOnClick={() => { history.push('/order/pick'); }}
-            />
-            <p>
-              Não tem cadastro? <span><Link to='/user/register'>Registrar-se</Link></span>
-            </p>
+            <div className='divider'>
+              <Button
+                buttonType='button'
+                buttonClass='btn-base btn-register'
+                buttonText='Entregar encomenda'
+                buttonOnClick={() => { history.push('/order/register'); }}
+              />
+
+              <Button
+                buttonType='button'
+                buttonClass='btn-base btn-register'
+                buttonText='Pegar encomenda'
+                buttonOnClick={() => { history.push('/order/pick'); }}
+              />
+            </div>
+            <div className='register-user'>
+              <p>
+                Não tem cadastro? <span><Link to='/user/register'>Registrar-se</Link></span>
+              </p>
+            </div>
           </section>
         </main>
       </div>
+      <Footer />
     </>
   );
 };

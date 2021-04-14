@@ -17,11 +17,25 @@ padding: 0;
 box-sizing: border-box;
 }
 
+/* CLEARFIX */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
 
  /* GLOBAL STYLING */
 html {
 font-family: 'Roboto', sans-serif;
-font-size: clamp(1em, 1em + 1vw, 1.5em);
+font-size: 1.1rem;
 color: var(--white);
 }
 
@@ -33,10 +47,12 @@ img {
   height: 40vh;
 }
 
-/* background-color: var(--orange);
+body {
+background-color: var(--orange);
 background-image: url(./images/background-orange-waves.jpg);
 background-repeat: no-repeat;
-background-size: auto; */
+background-size: auto;
+}
 
 
 span {
@@ -78,39 +94,39 @@ span a:hover {
 	border: 1px solid #ccc;
 } 
 
-.container-top{
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-height: 500px;
-} 
-
+.divider{
+  margin: 3rem;
+  justify-content: space-around;
+}
 
 /* BUTTON */
 .btn-base {
+  display: inline-block;
   position: relative;
   top: 0;
-  padding: 0.4rem 2rem;
+  padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 0.6rem;
-  font-family: 'Roboto', sans-serif;
-  font-size: clamp(0.3em, 0.8em + 1vw, 1em);
+  text-align: center;
   font-weight: 900;
+  margin-left :5px
 }
 .btn-register {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.btn-centered {
-  margin: 0 auto;
+.register-user{
+  padding: 1rem;
+  font-weight: 400;
 }
-
-
 
 /* RESPONSIVENESS  */
 @media screen and (max-width: 495px) {
   .btn-base {
-      display: grid;
-      grid-template-columns: 100px 100px;
-        }  
-  }
+    display: inline-block;
+    grid-template-columns: 100px;
+    margin: 0 5px 25px 10px;
+    width: 250px;
+    height: 60px;
+    }  
+}

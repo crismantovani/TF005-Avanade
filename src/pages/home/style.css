@@ -10,6 +10,7 @@
 }
 
 .bottom-section {
+  padding-top: 2rem;
   position: absolute;
   top: 50%;
   right: 0;
