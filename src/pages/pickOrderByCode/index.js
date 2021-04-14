@@ -54,7 +54,7 @@ const PickOrderByCode = () => {
     ) : null}
     <Header />
     <main>
-      <h2>Localizar encomenda pelo Código</h2>
+      <h2>Pegar encomenda pelo Código</h2>
       <Form onSubmit={(event) => {
         handleSubmit(event);
       }}>
