@@ -85,9 +85,6 @@ const FaceCapture = ({
           buttonOnClick={capture}
           buttonClass='btn-base'
         />
-        </>
-      )}
-      <>
         {location.pathname === orderPath ? (
           <Button
             buttonText='Pegar pelo Código'
@@ -97,6 +94,7 @@ const FaceCapture = ({
           null
         )}
       </>
+      )}
     </main>
   );
 };
