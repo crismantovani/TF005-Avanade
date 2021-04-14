@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import Button from '../Button';
@@ -13,28 +14,18 @@ const videoConstraints = {
   facingMode: 'user',
 };
 
-const userInfo = {
-  nomeCompleto: '',
-  funcao: '',
-  image: '',
-};
-
-const FaceCapture = ({ setImgSrc, label }) => {
+const FaceCapture = ({
+  label, setUserData, userData, loading, setLoading, detectFaces,
+}) => {
   const location = useLocation();
   const path = '/user/register';
   const webcamRef = useRef(null);
-  const [user, setUser] = useState(userInfo);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log(event);
-  };
 
   const capture = useCallback(() => {
+    setLoading(true);
     const imageSrc = webcamRef.current.getScreenshot();
-    setImgSrc(imageSrc);
-  }, [webcamRef, setImgSrc]);
+    detectFaces(imageSrc);
+  }, [webcamRef, detectFaces, setLoading]);
 
   return (
     <main className='face-capture-container'>
@@ -52,37 +43,30 @@ const FaceCapture = ({ setImgSrc, label }) => {
           <>
             <Form
               className='form-register'
-              onSubmit={(e) => handleSubmit(e)}>
+            >
               <Input
                 type='text'
                 className='form-inputs'
-                value={user.nomeCompleto}
-                onChange={(e) => {
-                  setUser(
-                    {
-                      ...user, nomeCompleto: e.targert.value,
-                    },
-                  );
-                }}
                 placeholder='Nome completo'
                 minLength='3'
                 required
+                onChange={(e) => {
+                  setUserData({
+                    ...userData, fullName: e.target.value,
+                  });
+                }}
               />
               <Input
                 type='text'
                 className='form-inputs'
-                value={user.codigoEntrega}
-                onChange={(e) => {
-                  setUser(
-                    {
-                      ...user, funcao: e.targert.value,
-                    },
-                  );
-                }}
                 placeholder='Função'
                 minLength='3'
-                maxLength='8'
                 required
+                onChange={(e) => {
+                  setUserData({
+                    ...userData, function: e.target.value,
+                  });
+                }}
               />
             </Form>
           </>
@@ -90,12 +74,25 @@ const FaceCapture = ({ setImgSrc, label }) => {
           null
         )}
       </>
-      <Button
+      {loading ? (
+        <div className='loading'/>
+      ) : (
+        <>
+        <Button
         buttonText={label}
         buttonType="button"
         buttonOnClick={capture}
         buttonClass='btn-base'
       />
+        {location.pathname !== path ? (
+          <Button
+            buttonText="Pegar pelo Código"
+          />
+        ) : (
+          null
+        )}
+        </>
+      )}
     </main>
   );
 };
