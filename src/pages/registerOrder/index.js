@@ -39,27 +39,27 @@ const RegisterOrder = () => {
       <table>
         <tr>
           <th></th>
-          <th>P</th>
-          <th>M</th>
-          <th>G</th>
+          <th>Largura</th>
+          <th>Altura</th>
+          <th>Comprimento</th>
         </tr>
         <tr>
-          <td>Largura</td>
+          <td>P</td>
+          <td>20cm</td>
           <td>30cm</td>
           <td>50cm</td>
-          <td>80cm</td>
         </tr>
         <tr>
-          <td>Altura</td>
-          <td>20cm</td>
+          <td>M</td>
           <td>40cm</td>
-          <td>100cm</td>
+          <td>60cm</td>
+          <td>50cm</td>
         </tr>
         <tr>
-          <td>Comprimento</td>
-          <td>60cm</td>
-          <td>60cm</td>
-          <td>60cm</td>
+          <td>G</td>
+          <td>80cm</td>
+          <td>100cm</td>
+          <td>50cm</td>
         </tr>
       </table>
     </>
