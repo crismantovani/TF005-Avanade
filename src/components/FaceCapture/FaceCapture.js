@@ -39,8 +39,13 @@ const FaceCapture = ({
         videoConstraints={videoConstraints}
         className='webcam'
       />
-      <>
-        {location.pathname === userPath ? (
+      {loading ? (
+        <div className='buttons'>
+          <div className='loading'/>
+        </div>
+      ) : (
+        <div className='buttons'>
+          {location.pathname === userPath ? (
           <>
             <Form
               className='form-register'
@@ -71,30 +76,25 @@ const FaceCapture = ({
               />
             </Form>
           </>
-        ) : (
-          null
-        )}
-      </>
-      {loading ? (
-        <div className='loading'/>
-      ) : (
-        <>
+          ) : (
+            null
+          )}
         <Button
           buttonText={label}
           buttonType='button'
           buttonOnClick={capture}
-          buttonClass='btn-base'
+          buttonClass={label === 'Validar Acesso' ? 'btn-base btn-pick-order' : 'btn-base btn-pick'}
         />
         {location.pathname === orderPath ? (
           <Button
             buttonText='Pegar pelo Código'
-            buttonClass='btn-base'
+            buttonClass='btn-pick-secondary'
             buttonOnClick={() => { history.push('/order/pick/code'); }}
           />
         ) : (
           null
         )}
-      </>
+      </div>
       )}
     </main>
   );

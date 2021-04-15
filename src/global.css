@@ -95,7 +95,9 @@ span a:hover {
 } 
 
 .divider{
-  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
 }
 
@@ -106,7 +108,7 @@ span a:hover {
   top: 0;
   padding: 0.5rem 1.5rem;
   border: none;
-  border-radius: 0.6rem;
+  border-radius: 10px;
   text-align: center;
   font-weight: 900;
   margin-left :5px
@@ -125,8 +127,11 @@ span a:hover {
   .btn-base {
     display: inline-block;
     grid-template-columns: 100px;
-    margin: 0 5px 25px 10px;
+    margin: 0 10px 25px 10px;
     width: 250px;
     height: 60px;
+    color: var(--orange);
+    font-size: 16px;
+    font-weight: 600;
     }  
 }

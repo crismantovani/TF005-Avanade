@@ -77,7 +77,7 @@ const RegisterOrder = () => {
       <Header />
       <main>
       <div className='form-container'>
-        <Form onSubmit={(e) => handleSubmit(e)}>
+        <Form className='form-register-order' onSubmit={(e) => handleSubmit(e)}>
           <h2>Cadastre a encomenda</h2>
           <Input
             type='text'
@@ -111,7 +111,7 @@ const RegisterOrder = () => {
             required
           />
           <select
-            className='form-inputs'
+            className='form-select'
             onChange={(e) => {
               setUser(
                 {
@@ -135,7 +135,7 @@ const RegisterOrder = () => {
           </p>
           <Button
             buttonType='submit'
-            buttonClass='btn-bold'
+            buttonClass='btn-register'
             buttonOnClick=''
             buttonText='Cadastrar'
           />
