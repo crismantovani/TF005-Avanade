@@ -1,93 +1,120 @@
+/* eslint-disable max-len */
 /* eslint-disable comma-dangle */
-// import React, { useState, useEffect } from 'react';
-import React, { useState } from 'react';
-import Input from '../../components/Input';
-import Form from '../../components/Form';
+import React, { useState, useEffect } from 'react';
 import Button from '../../components/Button';
+import Form from '../../components/Form';
+import Input from '../../components/Input';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-
-const userInfo = {
-  nomeCompleto: '',
-  codigoEntrega: '',
-  tamanhoEncomenda: '',
-};
+import Modal from '../../components/Modal';
+import LockerFace from '../../utils/LockerFaceAPIconfig';
 
 const RegisterOrder = () => {
-  const [user, setUser] = useState(userInfo);
+  const [user, setUser] = useState();
+  const [name, setName] = useState();
+  const [code, setCode] = useState();
+  const [lockerSize, setLockerSize] = useState();
 
-  // useEffect(() => {
-  // }, []);
+  useEffect(() => {
+    if (name);
+    if (code);
+    if (lockerSize);
+    const userInfo = {
+      name,
+      code,
+      lockerSize,
+      lockerID: 10,
+    };
+    setUser(userInfo);
+  }, [name, code, lockerSize]);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const [sendModalType, setSendModalType] = useState('');
+
+  const handleResponseModal = (modalVisibility, modalType, message) => {
+    setIsModalVisible(modalVisibility);
+    setSendModalType(modalType);
+    setModalMessage(message);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log(event);
+    if (user) {
+      const method = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user),
+      };
+      LockerFace(method)
+        .then((codeDB) => {
+          if (codeDB.lockerID) {
+            // eslint-disable-next-line react/jsx-no-undef
+            const message = (
+              `Cadastro feito com sucesso! 
+            \nPor favor, colocar a encomenda no 
+            \nARMÁRIO ${codeDB.lockerID}
+            \nO armário já está desbloqueado!
+            Feche o armário ao terminar.`);
+            return handleResponseModal(true, 'success', message);
+          }
+          return false;
+        });
+    }
   };
 
   return (
     <>
+    {isModalVisible ? (
+      <Modal
+        modalType={sendModalType}
+        modalText={modalMessage}
+        onClose={() => setIsModalVisible(false)}
+      />
+    ) : null}
       <Header />
       <main>
-      <div className='form-container'>
-        <Form onSubmit={(e) => handleSubmit(e)}>
+        <div className='form-container'>
           <h2>Cadastre a encomenda</h2>
-          <Input
-            type='text'
-            className='form-inputs'
-            value={user.nomeCompleto}
-            onChange={(e) => {
-              setUser(
-                {
-                  ...user, nomeCompleto: e.targert.value,
-                }
-              );
-            }}
-            placeholder='Nome completo do destinatário'
-            minLength='3'
-            required
-          />
-          <Input
-            type='text'
-            className='form-inputs'
-            value={user.codigoEntrega}
-            onChange={(e) => {
-              setUser(
-                {
-                  ...user, codigoEntrega: e.targert.value,
-                }
-              );
-            }}
-            placeholder='Código de entrega'
-            minLength='3'
-            maxLength='6'
-            required
-          />
-          <select
-            className='form-inputs'
-            onChange={(e) => {
-              setUser(
-                {
-                  ...user, tamanhoEncomenda: e.targert.value,
-                }
-              );
-            }}
-            defaultValue='Tamanho da encomenda'
-            required
-          >
-            <option disabled>Tamanho da encomenda</option>
-            <option value='Pequeno'>Pequeno</option>
-            <option value='Medio'>Médio</option>
-            <option value='Grande'>Grande</option>
-          </select>
-          <Button
-            buttonType='submit'
-            buttonClass='btn-bold'
-            buttonOnClick=''
-            buttonText='Cadastrar'
-          />
-        </Form>
-      </div>
+          <Form onSubmit={(event) => {
+            handleSubmit(event);
+          }}>
+            <Input
+              type='text'
+              className='form-inputs'
+              onChange={(e) => setName(e.target.value)}
+              placeholder='Nome completo do destinatário'
+              minLength='3'
+              required
+            />
+            <Input
+              type='number'
+              className='form-inputs'
+              onChange={(e) => setCode(e.target.value)}
+              placeholder='Código de entrega'
+              max='999999'
+              required
+            />
+            <select
+              className='form-inputs'
+              onChange={(e) => setLockerSize(e.target.value)}
+              defaultValue='Tamanho da encomenda'
+              required
+            >
+              <option disabled>Tamanho da encomenda</option>
+              <option value='Pequeno'>Pequeno</option>
+              <option value='Medio'>Médio</option>
+              <option value='Grande'>Grande</option>
+            </select>
+            <Button
+              buttonType='submit'
+              buttonClass='btn-bold'
+              buttonText='Cadastrar'
+            />
+          </Form>
+        </div>
       </main>
       <Footer />
     </>
