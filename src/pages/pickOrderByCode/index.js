@@ -32,13 +32,17 @@ const PickOrderByCode = () => {
     };
     LockerFace(method)
       .then((codeDB) => {
-        const pickOrder = codeDB.filter((i) => i.code === Number(tracking));
+        const pickOrder = codeDB.filter((i) => i.code === tracking);
         if (pickOrder.length === 0) {
           handleResponseModal(true, 'error', 'Código não encontrado');
         } else {
           pickOrder.map(({ name, lockerID }) => {
-            const idLocker = lockerID.toUpperCase();
-            const message = `Código validado com sucesso! \n Olá ${name}, sua encomenda está localizada no ${idLocker}`;
+            const idLocker = lockerID;
+            const message = (`
+            Código validado com sucesso! 
+            \nOlá ${name}, sua encomenda está localizada no 
+            \nARMÁRIO ${idLocker}
+            \nO armário já está desbloqueado!`);
             return handleResponseModal(true, 'success', message);
           });
         }
