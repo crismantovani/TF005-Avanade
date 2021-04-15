@@ -11,9 +11,9 @@ import LockerFace from '../../utils/LockerFaceAPIconfig';
 import './style.css';
 
 const RegisterOrder = () => {
-  const [user, setUser] = useState();
-  const [name, setName] = useState();
-  const [code, setCode] = useState();
+  const [user, setUser] = useState('');
+  const [name, setName] = useState('');
+  const [code, setCode] = useState('');
   const [lockerSize, setLockerSize] = useState();
 
   useEffect(() => {
@@ -52,13 +52,15 @@ const RegisterOrder = () => {
       LockerFace(method)
         .then((codeDB) => {
           if (codeDB.lockerID) {
-            // eslint-disable-next-line react/jsx-no-undef
             const message = (
               `Cadastro feito com sucesso! 
             \nPor favor, colocar a encomenda no 
             \nARMÁRIO ${codeDB.lockerID}
             \nO armário já está desbloqueado!
             Feche o armário ao terminar.`);
+            setUser('');
+            setName('');
+            setCode('');
             return handleResponseModal(true, 'success', message);
           }
           return false;
@@ -115,6 +117,7 @@ const RegisterOrder = () => {
           <Input
               type='text'
               className='form-inputs'
+              value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder='Nome completo do destinatário'
               minLength='3'
@@ -123,6 +126,7 @@ const RegisterOrder = () => {
             <Input
               type='number'
               className='form-inputs'
+              value={code}
               onChange={(e) => setCode(e.target.value)}
               placeholder='Código de entrega'
               max='999999'
