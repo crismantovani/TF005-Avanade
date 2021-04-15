@@ -14,6 +14,7 @@ const PickOrderByCode = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [sendModalType, setSendModalType] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleResponseModal = (modalVisibility, modalType, message) => {
     setIsModalVisible(modalVisibility);
@@ -22,6 +23,7 @@ const PickOrderByCode = () => {
   };
 
   function handleSubmit(e) {
+    setLoading(true);
     e.preventDefault();
     const method = {
       method: 'GET',
@@ -35,6 +37,7 @@ const PickOrderByCode = () => {
         const pickOrder = codeDB.filter((i) => i.code === tracking);
         if (pickOrder.length === 0) {
           handleResponseModal(true, 'error', 'Código não encontrado');
+          setLoading(false);
         } else {
           pickOrder.map(({ name, lockerID }) => {
             const idLocker = lockerID;
@@ -44,7 +47,8 @@ const PickOrderByCode = () => {
             \nARMÁRIO ${idLocker}
             \nO armário já está desbloqueado!`);
             setTracking('');
-            return handleResponseModal(true, 'success', message);
+            handleResponseModal(true, 'success', message);
+            return setLoading(false);
           });
         }
       });
@@ -76,11 +80,15 @@ const PickOrderByCode = () => {
           max='999999'
           required
         />
-        <Button
-          buttonType='submit'
-          buttonClass='btn-base btn-register'
-          buttonText='Pegar encomenda'
-        />
+         {loading ? (
+          <div className='loading-pick-order'/>
+         ) : (
+          <Button
+            buttonType='submit'
+            buttonClass='btn-base btn-register'
+            buttonText='Pegar encomenda'
+          />
+         )}
       </Form>
     </main>
     <Footer />

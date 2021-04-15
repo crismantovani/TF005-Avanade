@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
@@ -15,6 +16,7 @@ const RegisterUser = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [sendModalType, setSendModalType] = useState('');
+  const history = useHistory();
 
   const handleResponseModal = (modalVisibility, modalType, message) => {
     setIsModalVisible(modalVisibility);
@@ -31,6 +33,10 @@ const RegisterUser = () => {
           handleResponseModal(true, 'error', 'Face não cadastrada, tente novamente!');
           setLoading(false);
         }
+      })
+      .catch((error) => {
+        handleResponseModal(true, 'error', error.message);
+        setLoading(false);
       });
   };
 
@@ -56,6 +62,10 @@ const RegisterUser = () => {
         } else {
           addFaceToUser(user, image);
         }
+      })
+      .catch((error) => {
+        handleResponseModal(true, 'error', error.message);
+        setLoading(false);
       });
   };
 
@@ -72,6 +82,10 @@ const RegisterUser = () => {
           const faceId = response[0].faceId;
           identifyFace(faceId, image);
         }
+      })
+      .catch((error) => {
+        handleResponseModal(true, 'error', error.message);
+        setLoading(false);
       });
   };
 
@@ -88,6 +102,10 @@ const RegisterUser = () => {
           handleResponseModal(true, 'error', 'Sua Face ID já está cadastrada no sistema');
           setLoading(false);
         }
+      })
+      .catch((error) => {
+        handleResponseModal(true, 'error', error.message);
+        setLoading(false);
       });
   };
 
@@ -100,6 +118,10 @@ const RegisterUser = () => {
             type: 'image/png',
           });
           detectFace(file);
+        })
+        .catch((error) => {
+          handleResponseModal(true, 'error', error.message);
+          setLoading(false);
         });
     }
   };
@@ -110,7 +132,14 @@ const RegisterUser = () => {
       <Modal
         modalType={sendModalType}
         modalText={modalMessage}
-        onClose={() => setIsModalVisible(false)}
+        onClose={() => {
+          setIsModalVisible(false);
+          if (modalMessage.includes('Sua Face ID já está cadastrada no sistema') || modalMessage.includes('Usuário Cadastrado com Sucesso')) {
+            history.push({
+              pathname: '/',
+            });
+          }
+        }}
       />
     ) : null}
     <Header />
