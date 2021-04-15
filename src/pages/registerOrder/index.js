@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
-/* eslint-disable comma-dangle */
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
 import Form from '../../components/Form';
 import Input from '../../components/Input';
@@ -15,6 +14,8 @@ const RegisterOrder = () => {
   const [name, setName] = useState('');
   const [code, setCode] = useState('');
   const [lockerSize, setLockerSize] = useState();
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     if (name);
@@ -40,12 +41,13 @@ const RegisterOrder = () => {
   };
 
   const handleSubmit = (event) => {
+    setLoading(true);
     event.preventDefault();
     if (user) {
       const method = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(user),
       };
@@ -61,7 +63,8 @@ const RegisterOrder = () => {
             setUser('');
             setName('');
             setCode('');
-            return handleResponseModal(true, 'success', message);
+            handleResponseModal(true, 'success', message);
+            return setLoading(false);
           }
           return false;
         });
@@ -106,7 +109,14 @@ const RegisterOrder = () => {
         <Modal
           modalType={sendModalType}
           modalText={modalMessage}
-          onClose={() => setIsModalVisible(false)}
+          onClose={() => {
+            setIsModalVisible(false);
+            if (modalMessage.includes('Cadastro feito com sucesso!')) {
+              history.push({
+                pathname: '/',
+              });
+            }
+          }}
         />
       ) : null}
       <Header />
@@ -149,12 +159,16 @@ const RegisterOrder = () => {
           >
             <u>Saiba mais</u> sobre os tamanhos
           </p>
-          <Button
-            buttonType='submit'
-            buttonClass='btn-register'
-            buttonOnClick=''
-            buttonText='Cadastrar'
-          />
+          {loading ? (
+            <div className='loading-register'/>
+          ) : (
+            <Button
+              buttonType='submit'
+              buttonClass='btn-register'
+              buttonOnClick=''
+              buttonText='Cadastrar'
+            />
+          )}
         </Form>
       </div>
       </main>

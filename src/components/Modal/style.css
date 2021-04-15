@@ -15,7 +15,7 @@
   background-color: #ffffff;
   color: #383636;
   width: 350px;
-  height: 350px;
+  height: auto;
   border-radius: 0.5rem;
   box-shadow: 2px 2px 8px 0px #383636;
   text-align: center;
@@ -39,4 +39,5 @@
 .modal-message {
   font-size: 18px;
   white-space: pre-line;
+  margin-bottom: 30px;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import FaceCapture from '../../components/FaceCapture/FaceCapture';
 import Header from '../../components/Header';
 import client from '../../utils/APIconfig';
@@ -12,6 +13,7 @@ const PickOrder = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [sendModalType, setSendModalType] = useState('');
+  const history = useHistory();
 
   const handleResponseModal = (modalVisibility, modalType, message) => {
     setIsModalVisible(modalVisibility);
@@ -32,6 +34,10 @@ const PickOrder = () => {
           const faceId = response[0].faceId;
           identifyFace(faceId);
         }
+      })
+      .catch((error) => {
+        handleResponseModal(true, 'error', error.message);
+        setLoading(false);
       });
   };
 
@@ -49,6 +55,10 @@ const PickOrder = () => {
           const personId = face[0].candidates[0].personId;
           getUserData(personId);
         }
+      })
+      .catch((error) => {
+        handleResponseModal(true, 'error', error.message);
+        setLoading(false);
       });
   };
 
@@ -71,6 +81,7 @@ const PickOrder = () => {
               const pickOrder = codeDB.filter((i) => i.name === person.name);
               if (pickOrder.length === 0) {
                 handleResponseModal(true, 'error', 'Nenhuma encomenda encontrada em seu nome');
+                setLoading(false);
               } else {
                 pickOrder.map(({ name, lockerID }) => {
                   const message = (`
@@ -82,6 +93,10 @@ const PickOrder = () => {
                   return setLoading(false);
                 });
               }
+            })
+            .catch((error) => {
+              handleResponseModal(true, 'error', error.message);
+              setLoading(false);
             });
         }
       });
@@ -106,7 +121,14 @@ const PickOrder = () => {
         <Modal
           modalType={sendModalType}
           modalText={modalMessage}
-          onClose={() => setIsModalVisible(false)}
+          onClose={() => {
+            setIsModalVisible(false);
+            if (modalMessage.includes('Nenhuma encomenda encontrada em seu nome') || modalMessage.includes('Face ID detectada com sucesso! ')) {
+              history.push({
+                pathname: '/',
+              });
+            }
+          }}
         />
       ) : null}
       <Header/>
