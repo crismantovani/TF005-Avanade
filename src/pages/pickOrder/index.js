@@ -79,7 +79,8 @@ const PickOrder = () => {
                   \nOlá ${name}, sua encomenda está localizada no 
                   \nARMÁRIO ${idLocker}
                   \nO armário já está desbloqueado!`);
-                  return handleResponseModal(true, 'success', message);
+                  handleResponseModal(true, 'success', message);
+                  return setLoading(false);
                 });
               }
             });
