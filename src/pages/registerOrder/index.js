@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import LockerFace from '../../utils/LockerFaceAPIconfig';
+import './style.css';
 
 const RegisterOrder = () => {
   const [user, setUser] = useState();
@@ -65,23 +66,53 @@ const RegisterOrder = () => {
     }
   };
 
+  const sizesDefinitions = () => (
+    <>
+      <p className='table-title'>Certifique-se em qual armário a encomenda se encaixa:</p>
+      <table>
+        <tr>
+          <th></th>
+          <th>Largura</th>
+          <th>Altura</th>
+          <th>Comprimento</th>
+        </tr>
+        <tr>
+          <td>P</td>
+          <td>20cm</td>
+          <td>30cm</td>
+          <td>50cm</td>
+        </tr>
+        <tr>
+          <td>M</td>
+          <td>40cm</td>
+          <td>60cm</td>
+          <td>50cm</td>
+        </tr>
+        <tr>
+          <td>G</td>
+          <td>80cm</td>
+          <td>100cm</td>
+          <td>50cm</td>
+        </tr>
+      </table>
+    </>
+  );
+
   return (
     <>
-    {isModalVisible ? (
-      <Modal
-        modalType={sendModalType}
-        modalText={modalMessage}
-        onClose={() => setIsModalVisible(false)}
-      />
-    ) : null}
+      {isModalVisible ? (
+        <Modal
+          modalType={sendModalType}
+          modalText={modalMessage}
+          onClose={() => setIsModalVisible(false)}
+        />
+      ) : null}
       <Header />
       <main>
-        <div className='form-container'>
+      <div className='form-container'>
+        <Form className='form-register-order' onSubmit={(e) => handleSubmit(e)}>
           <h2>Cadastre a encomenda</h2>
-          <Form onSubmit={(event) => {
-            handleSubmit(event);
-          }}>
-            <Input
+          <Input
               type='text'
               className='form-inputs'
               onChange={(e) => setName(e.target.value)}
@@ -98,7 +129,7 @@ const RegisterOrder = () => {
               required
             />
             <select
-              className='form-inputs'
+              className='form-select'
               onChange={(e) => setLockerSize(e.target.value)}
               defaultValue='Tamanho da encomenda'
               required
@@ -108,13 +139,20 @@ const RegisterOrder = () => {
               <option value='Medio'>Médio</option>
               <option value='Grande'>Grande</option>
             </select>
-            <Button
-              buttonType='submit'
-              buttonClass='btn-bold'
-              buttonText='Cadastrar'
-            />
-          </Form>
-        </div>
+          <p
+            className='more-about-sizes'
+            onClick={() => handleResponseModal(true, 'info', sizesDefinitions())}
+          >
+            <u>Saiba mais</u> sobre os tamanhos
+          </p>
+          <Button
+            buttonType='submit'
+            buttonClass='btn-register'
+            buttonOnClick=''
+            buttonText='Cadastrar'
+          />
+        </Form>
+      </div>
       </main>
       <Footer />
     </>

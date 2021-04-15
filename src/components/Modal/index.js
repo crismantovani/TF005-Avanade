@@ -30,7 +30,12 @@ const Modal = ({
         {modalType === 'success' ? (
           <img className='icon-modal' alt='icon-success'src={ImgSuccess}/>
         ) : (
+          null
+        )}
+        {modalType === 'error' ? (
           <img className='icon-modal' alt='icon-error' src={ImgError}/>
+        ) : (
+          null
         )}
         <p className='modal-message'>{modalText}</p>
       </div>

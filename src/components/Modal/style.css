@@ -27,6 +27,7 @@
 
 .icon-modal {
   width: 150px;
+  height: auto;
   margin: 15px 0 40px 0;
 }
 
@@ -36,7 +37,6 @@
 }
 
 .modal-message {
-  width: 85%;
   font-size: 18px;
   white-space: pre-line;
 }

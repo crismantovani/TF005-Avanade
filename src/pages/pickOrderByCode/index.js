@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import LockerFace from '../../utils/LockerFaceAPIconfig';
+import './style.css';
 
 const PickOrderByCode = () => {
   const [tracking, setTracking] = useState();
@@ -57,27 +58,28 @@ const PickOrderByCode = () => {
       />
     ) : null}
     <Header />
-    <main>
-      <div className='form-container'>
-        <h2>Pegar encomenda pelo Código</h2>
-        <Form onSubmit={(event) => {
+    <main className='main-pick-order'>
+      <h2>Pegar encomenda pelo código</h2>
+      <Form
+        className='form-pick-order'
+        onSubmit={(event) => {
           handleSubmit(event);
-        }}>
-          <Input
-            type='number'
-            className='form-inputs'
-            onChange={(e) => setTracking(e.target.value)}
-            placeholder='Código de entrega'
-            max='999999'
-            required
-          />
-          <Button
-            buttonType='submit'
-            buttonClass='btn-base btn-register'
-            buttonText='Pegar encomenda'
-          />
-        </Form>
-      </div>
+        }}
+      >
+        <Input
+          type='number'
+          className='form-inputs'
+          onChange={(e) => setTracking(e.target.value)}
+          placeholder='Código de entrega'
+          max='999999'
+          required
+        />
+        <Button
+          buttonType='submit'
+          buttonClass='btn-base btn-register'
+          buttonText='Pegar encomenda'
+        />
+      </Form>
     </main>
     <Footer />
   </>
