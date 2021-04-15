@@ -75,7 +75,7 @@ Para *merge* no repositório (*main*), somente após [*code review*](https://en.
 #### 	4.2 Protótipos
 
 Iniciamos o desenvolvimento da aplicação com um protótipo de baixa fidelidade para dar um direcionamento aos próximos.
-[imagem do desenho ridiculo da Kauana]
+[imagem do desenho]
 
 A partir do desenho acima iniciamos o desenvolvimento do protótipo de média fidelidade através da ferramenta **Figma**.
 <div align="center">
