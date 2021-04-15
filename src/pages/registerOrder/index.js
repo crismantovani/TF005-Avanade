@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import LockerFace from '../../utils/LockerFaceAPIconfig';
+import './style.css';
 
 const RegisterOrder = () => {
   const [user, setUser] = useState();
