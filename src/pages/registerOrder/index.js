@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable comma-dangle */
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
@@ -49,7 +47,7 @@ const RegisterOrder = () => {
       const method = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(user),
       };

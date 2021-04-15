@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 import React, { useState } from 'react';
 import Button from '../../components/Button';
 import Form from '../../components/Form';
@@ -30,7 +29,7 @@ const PickOrderByCode = () => {
       headers: {
         accept: 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
-      }
+      },
     };
     LockerFace(method)
       .then((codeDB) => {
