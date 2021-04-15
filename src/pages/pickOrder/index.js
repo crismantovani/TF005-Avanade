@@ -73,13 +73,13 @@ const PickOrder = () => {
                 handleResponseModal(true, 'error', 'Nenhuma encomenda encontrada em seu nome');
               } else {
                 pickOrder.map(({ name, lockerID }) => {
-                  const idLocker = lockerID;
                   const message = (`
                   Face ID detectada com sucesso! 
                   \nOlá ${name}, sua encomenda está localizada no 
-                  \nARMÁRIO ${idLocker}
+                  \nARMÁRIO ${lockerID}
                   \nO armário já está desbloqueado!`);
-                  return handleResponseModal(true, 'success', message);
+                  handleResponseModal(true, 'success', message);
+                  return setLoading(false);
                 });
               }
             });
