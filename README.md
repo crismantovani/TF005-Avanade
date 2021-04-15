@@ -1,21 +1,23 @@
 # Locker Face
 
-## Índice
-- [1. O Desafio](#1-o-projeto)
-- [2. A aplicação](#2-a-aplicação)
-- [3. Histórias de usuários](#3-histórias-de-usuários)
-- [4. Planejamento](#4-planejamento)
-  * [4.1 Organização](#41-organização)
-  * [4.2 Protótipos](#42-protótipos)
-- [5. Desenvolvimento](#5-desenvolvimento)
-  * [5.2 Interface Final](#52-interface-final)
-  * [5.3 Releases](#53-releases)
-- [6. Tecnologias](#6-tecnologias)
-- [7. Agradecimento](#7-agradecimento)
-- [8. Desenvolvedoras](#8-desenvolvedoras)
+## 📑 Índice
+- [Locker Face](#locker-face)
+  - [📑 Índice](#-índice)
+  - [🎯 Desafio](#-desafio)
+  - [💡 A aplicação](#-a-aplicação)
+  - [🔐 Histórias de usuários](#-histórias-de-usuários)
+  - [📆 Planejamento](#-planejamento)
+      - [📋 Organização](#-organização)
+      - [✍ Protótipos](#-protótipos)
+  - [💻 Desenvolvimento](#-desenvolvimento)
+    - [🎨 Interface Final](#-interface-final)
+    - [🚧 Releases](#-releases)
+  - [⚙️ Tecnologias](#️-tecnologias)
+  - [🙌 Agradecimento](#-agradecimento)
+  - [🦸 Desenvolvedoras](#-desenvolvedoras)
 
 ***
-## 1. O Desafio
+## 🎯 Desafio
 
 Chegamos ao fim do Bootcamp, e como um último teste, recebemos da empresa Avanade um desafio.
 
@@ -26,9 +28,9 @@ Hoje com o aumento da pandemia, quem quer ficar em filas enormes, passando por p
 
 A expectativa com o desenvolvimento da aplicação é criar um site/app de identificação e cadastro utilizando a api de facial recognition da Microsoft.
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-## 2. A aplicação
+## 💡 A aplicação
 
 Com o desafio em mãos iniciamos o processo de identificar um problema, chegamos em uma questão que está muito ligado o momento que estamos vivendo hoje.
 
@@ -36,9 +38,9 @@ A pandemia aumentou muito a compra através da internet e com isso o volume de e
 
 Com isso idealizamos o **Locker Face**, um dispositivo para ser utilizado em lockers (para empresas em prédios coorporativos ou condomínios residenciais sem portaria 24 horas), onde o funcionário que possuir uma entrega no Locker poderá fazer a retirada do mesmo, destravando o armário através da identificação de sua face. Facilitando a logística do entregador que não mais precisará esperar o funcionário na portaria para fazer a entrega, e o recebedor que poderá fazer a retirada a qualquer hora, com total segurança.
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-## 3. Histórias de usuários
+## 🔐 Histórias de usuários
 
 A partir da idealização do projeto podemos criar as Histórias de Usuários:
 
@@ -50,11 +52,11 @@ A partir da idealização do projeto podemos criar as Histórias de Usuários:
 
 * História de Usuário 4: <br> Eu como destinatário de uma encomenda quer liberar o armário que está minha encomenda pelo codigo de rastreio.
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-##  4. Planejamento
+## 📆 Planejamento
 
-#### 	4.1 Organização
+#### 	📋 Organização
 Para conseguir entregar todas as funcionalidades do projeto, organizamos todo o fluxo de desenvolvimento do projeto pelo método [Kanban](https://pt.wikipedia.org/wiki/Kanban) no Trello. 
 
 Dessa forma, definimos:
@@ -72,7 +74,7 @@ Para *merge* no repositório (*main*), somente após [*code review*](https://en.
 [Daily Scrum](https://www.desenvolvimentoagil.com.br/scrum/daily_scrum)
 
 
-#### 	4.2 Protótipos
+#### ✍ Protótipos
 
 Iniciamos o desenvolvimento da aplicação com um protótipo de baixa fidelidade para dar um direcionamento aos próximos.
 [imagem do desenho]
@@ -84,9 +86,9 @@ A partir do desenho acima iniciamos o desenvolvimento do protótipo de média fi
 A prototipagem definitiva foi desenvolvida em conjunto com os mentores da Avanade para aprovação do tema e paleta de cores escolhidas.
 [imagem do prototipo de alta fidelidade]
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-## 5. Desenvolvimento
+## 💻 Desenvolvimento
 
 Com toda a identidade visual definida começamos a desenvolver a interface.
 Os principais objetivos foram definidos logo de início:
@@ -101,11 +103,11 @@ Fomos desafiadas a utilizar a **Azure**, API da Microsoft de facial recognition,
 
 Como forma de complemento da aplicação, foi necessário a utilização de uma segunda API. Inicialmente realizamos um mock para entregar a aplicação com todas as implementações. Esse mock pode ser alterado por uma API já existente do Locker.
 
-### 5.2 Interface Final
+### 🎨 Interface Final
 Apresentamos a interface final da aplicação e todas as suas funcionalidades:
 [Gif do site funcionando]
 
-### 5.3 Releases
+### 🚧 Releases
 
 A aplicação está completa e funcional, mas sempre é possível melhorar.
 
@@ -122,10 +124,10 @@ Nossas próximas features são:
 
 Essa lista pode aumentar de acordo com a necessidade do cliente.
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
 
-## 6. Tecnologias
+## ⚙️ Tecnologias
 
 Hamburgueria Ipê utiliza as seguintes ferramentas:
 
@@ -155,9 +157,9 @@ npm start
 
 Enjoy 👊
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-## 7. Agradecimento
+## 🙌 Agradecimento
 
 Inicialmente gostaríamos de agradecer a **Avanade**, pela confiança e pelo apoio dado durante todo o tempo de hackaton.
 Nossa equipe ficou extasiada com o desafio proposto por vocês.
@@ -167,15 +169,62 @@ Gostaríamos de agradecer também a Laboratória por estar nos apoiando nessa no
 Não menos importante gostaríamos de agradecer a todas as colegas de código, em especial a [Akemi Mitsueda](https://github.com/akemimeka), [Caroline Costa](https://github.com/CarolineSCosta) e [Gabriela Silva](https://github.com/gabrielasilva1991).
 
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-## 8. Desenvolvedoras
+## 🦸 Desenvolvedoras
 
-- [Ana Clara Farah](https://github.com/anaclara-gf)
-- [Camila Oliveira](https://github.com/cbalieiro)
-- [Cristina Mantovani](https://github.com/crismantovani)
-- [Dunia Ghazzaoui](https://github.com/dunia07)
-- [Kauana Agostini](https://github.com/kauanaagostini)
-- [Lucila Xavier](https://github.com/Lucilaxavier)
+<table>
+  <tr>
+    <td align="center"><a href="
+https://www.linkedin.com/in/anaclaragf/
+"><img style="border-radius: 50%;" src="
+https://avatars.githubusercontent.com/u/71611075?v=4
+" width="100px;" alt=""/><br /><sub><b>Ana Clara Farah</b></sub></a><br /><a href="
+https://github.com/anaclara-gf
+" title="GitHub">👩‍💻</a></td>
 
-<p align='right'><a href='#topo'>Voltar ao topo</a></p>
+<td align="center"><a href="
+https://www.linkedin.com/in/camilabalieiro/
+"><img style="border-radius: 50%;" src="
+https://avatars.githubusercontent.com/u/71615963?v=4
+" width="100px;" alt=""/><br /><sub><b>Camila Oliveira</b></sub></a><br /><a href="
+https://github.com/cbalieiro
+" title="GitHub">👩‍💻</a></td>
+
+<td align="center"><a href="
+https://www.linkedin.com/in/crissmantovani/
+"><img style="border-radius: 50%;" src="
+https://avatars.githubusercontent.com/u/71425220?v=4
+" width="100px;" alt=""/><br /><sub><b>Cristina Mantovani</b></sub></a><br /><a href="
+https://github.com/crismantovani
+" title="GitHub">👩‍💻</a></td>
+
+<td align="center"><a href="
+https://www.linkedin.com/in/dunia-ghazzaoui/
+"><img style="border-radius: 50%;" src="
+https://avatars.githubusercontent.com/u/67087362?v=4
+" width="100px;" alt=""/><br /><sub><b>Dunia Ghazzaoui</b></sub></a><br /><a href="
+https://github.com/dunia07
+" title="GitHub">👩‍💻</a></td>
+
+<td align="center"><a href="
+https://www.linkedin.com/in/kauanaagostini/
+"><img style="border-radius: 50%;" src="
+https://avatars.githubusercontent.com/u/71272642?v=4
+" width="100px;" alt=""/><br /><sub><b>Kauana Agostini</b></sub></a><br /><a href="
+https://github.com/kauanaagostini
+" title="GitHub">👩‍💻</a></td>
+
+<td align="center"><a href="
+https://www.linkedin.com/in/lucila-xavier-da-silva/
+"><img style="border-radius: 50%;" src="
+https://avatars.githubusercontent.com/u/57038945?v=4
+" width="100px;" alt=""/><br /><sub><b>Lucila Xavier</b></sub></a><br /><a href="
+https://github.com/Lucilaxavie
+" title="GitHub">👩‍💻</a></td>
+    
+  </tr>
+</table>
+
+
+<p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
