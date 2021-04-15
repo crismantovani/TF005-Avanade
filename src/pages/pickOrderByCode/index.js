@@ -31,13 +31,17 @@ const PickOrderByCode = () => {
     };
     LockerFace(method)
       .then((codeDB) => {
-        const pickOrder = codeDB.filter((i) => i.code === Number(tracking));
+        const pickOrder = codeDB.filter((i) => i.code === tracking);
         if (pickOrder.length === 0) {
           handleResponseModal(true, 'error', 'Código não encontrado');
         } else {
           pickOrder.map(({ name, lockerID }) => {
-            const idLocker = lockerID.toUpperCase();
-            const message = `Código validado com sucesso! \n Olá ${name}, sua encomenda está localizada no ${idLocker}`;
+            const idLocker = lockerID;
+            const message = (`
+            Código validado com sucesso! 
+            \nOlá ${name}, sua encomenda está localizada no 
+            \nARMÁRIO ${idLocker}
+            \nO armário já está desbloqueado!`);
             return handleResponseModal(true, 'success', message);
           });
         }
@@ -54,24 +58,26 @@ const PickOrderByCode = () => {
     ) : null}
     <Header />
     <main>
-      <h2>Pegar encomenda pelo Código</h2>
-      <Form onSubmit={(event) => {
-        handleSubmit(event);
-      }}>
-        <Input
-          type='number'
-          className='form-inputs'
-          onChange={(e) => setTracking(e.target.value)}
-          placeholder='Código de entrega'
-          max='999999'
-          required
-        />
-        <Button
-          buttonType='submit'
-          buttonClass='btn-base btn-register'
-          buttonText='Pegar encomenda'
-        />
-      </Form>
+      <div className='form-container'>
+        <h2>Pegar encomenda pelo Código</h2>
+        <Form onSubmit={(event) => {
+          handleSubmit(event);
+        }}>
+          <Input
+            type='number'
+            className='form-inputs'
+            onChange={(e) => setTracking(e.target.value)}
+            placeholder='Código de entrega'
+            max='999999'
+            required
+          />
+          <Button
+            buttonType='submit'
+            buttonClass='btn-base btn-register'
+            buttonText='Pegar encomenda'
+          />
+        </Form>
+      </div>
     </main>
     <Footer />
   </>
