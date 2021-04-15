@@ -43,6 +43,7 @@ const PickOrderByCode = () => {
             \nOlá ${name}, sua encomenda está localizada no 
             \nARMÁRIO ${idLocker}
             \nO armário já está desbloqueado!`);
+            setTracking('');
             return handleResponseModal(true, 'success', message);
           });
         }
@@ -69,6 +70,7 @@ const PickOrderByCode = () => {
         <Input
           type='number'
           className='form-inputs'
+          value={tracking}
           onChange={(e) => setTracking(e.target.value)}
           placeholder='Código de entrega'
           max='999999'
