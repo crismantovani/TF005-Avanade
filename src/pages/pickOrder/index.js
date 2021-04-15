@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import client from '../../utils/APIconfig';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
+import LockerFace from '../../utils/LockerFaceAPIconfig';
 
 const PickOrder = () => {
   const [loading, setLoading] = useState(false);
@@ -58,8 +59,30 @@ const PickOrder = () => {
           handleResponseModal(true, 'error', 'Falha interna ao acessar os dados, tente novamente!');
           setLoading(false);
         } else {
-          handleResponseModal(true, 'success', `Olá ${person.name}, ${person.userData} da Avanade`);
-          setLoading(false);
+          const method = {
+            method: 'GET',
+            headers: {
+              accept: 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          };
+          LockerFace(method)
+            .then((codeDB) => {
+              const pickOrder = codeDB.filter((i) => i.name === person.name);
+              if (pickOrder.length === 0) {
+                handleResponseModal(true, 'error', 'Nenhuma encomenda encontrada em seu nome');
+              } else {
+                pickOrder.map(({ name, lockerID }) => {
+                  const idLocker = lockerID;
+                  const message = (`
+                  Face ID detectada com sucesso! 
+                  \nOlá ${name}, sua encomenda está localizada no 
+                  \nARMÁRIO ${idLocker}
+                  \nO armário já está desbloqueado!`);
+                  return handleResponseModal(true, 'success', message);
+                });
+              }
+            });
         }
       });
   };
