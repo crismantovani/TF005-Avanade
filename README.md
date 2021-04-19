@@ -19,14 +19,14 @@
 ***
 ## 🎯 Desafio
 
-Chegamos ao fim do Bootcamp, e como um último teste, recebemos da empresa Avanade um desafio.
+Chegamos ao fim do Bootcamp, e como um último teste, recebemos da empresa [**Avanade**](https://www.avanade.com/pt-br) um desafio.
 
 Segurança é um problema cada vez maior hoje em dia e garanti-la em meios não digitais pode
 ser ainda mais complexo. 
 
 Hoje com o aumento da pandemia, quem quer ficar em filas enormes, passando por processos de autenticação demorados e manuais e que quase sempre são assistidos por dispositivos ou acessórios para garantir a identificação. Mas num mundo cada vez mais digital conseguimos garantir melhor experiência para as pessoas fazendo sua identificação sem usuários ou senhas e dispositivos utilizando o reconhecimento facial.
 
-A expectativa com o desenvolvimento da aplicação é criar um site/app de identificação e cadastro utilizando a api de facial recognition da Microsoft.
+A expectativa com o desenvolvimento da aplicação é criar um site/app de identificação e cadastro utilizando a API de facial recognition da Microsoft.
 
 <p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
@@ -77,14 +77,18 @@ Para *merge* no repositório (*main*), somente após [*code review*](https://en.
 #### ✍ Protótipos
 
 Iniciamos o desenvolvimento da aplicação com um protótipo de baixa fidelidade para dar um direcionamento aos próximos.
-[imagem do desenho]
+<div align="center">
+<img alt='Protótipo Baixa Fidelidade' src="./src/images/readme/Protótipo-Kau.png" width='150'height='260'></img>
+</div>
 
 A partir do desenho acima iniciamos o desenvolvimento do protótipo de média fidelidade através da ferramenta **Figma**.
 <div align="center">
 <img alt='Protótipo Média Fidelidade' src="./src/images/readme/iphone-login-media-fidelidade.png" width='150'height='260'></img>
 </div>
 A prototipagem definitiva foi desenvolvida em conjunto com os mentores da Avanade para aprovação do tema e paleta de cores escolhidas.
-[imagem do prototipo de alta fidelidade]
+<div align="center">
+<img alt='Protótipo Alta Fidelidade' src="./src/images/readme/iphone-pegar-encomenda-alta-fidelidade.png" width='150'height='260'></img>
+</div>
 
 <p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
@@ -105,7 +109,9 @@ Como forma de complemento da aplicação, foi necessário a utilização de uma 
 
 ### 🎨 Interface Final
 Apresentamos a interface final da aplicação e todas as suas funcionalidades:
-[Gif do site funcionando]
+<div align="center">
+<img alt='Aplicação Locker Face' src="./src/images/readme/video.gif" width='150'height='260'></img>
+</div>
 
 ### 🚧 Releases
 
@@ -113,13 +119,13 @@ A aplicação está completa e funcional, mas sempre é possível melhorar.
 
 Nossas próximas features são:
 
-- [ ] Dupla validação caso a limear de confiança (confidenceThreshold) com a face detectada for entre 60% e 90%.
-- [ ] Dupla validação para encomendas cadastradas com nomes incorretos ou imcompletos.
+- [ ] Dupla validação caso a limiar de confiança (confidenceThreshold) com a face detectada for entre 60% e 90%.
+- [ ] Dupla validação para encomendas cadastradas com nomes incorretos ou incompletos.
 - [ ] Feedback de postagem no Locker para o Cliente.
 - [ ] Feedback de retirada da postagem pelo Cliente para o Entregador.
 - [ ] Melhoria na usabilidade do Locker pelo Entregador.
 - [ ] Aplicar uma moldura facial para orientar o usuário na validação da face.
-- [ ] Adição de mais uma layer de segurança para previnir desbloqueio por foto.
+- [ ] Adição de mais uma layer de segurança para prevenir desbloqueio por foto.
 - [ ] Contactless Face Recognition: Reconhecimento automático da face mediante aproximação do dispositivo.
 
 Essa lista pode aumentar de acordo com a necessidade do cliente.
@@ -129,7 +135,7 @@ Essa lista pode aumentar de acordo com a necessidade do cliente.
 
 ## ⚙️ Tecnologias
 
-Hamburgueria Ipê utiliza as seguintes ferramentas:
+Utilizamos as seguintes ferramentas:
 
 **Code:**
 
@@ -177,49 +183,37 @@ Não menos importante gostaríamos de agradecer a todas as colegas de código, e
   <tr>
     <td align="center"><a href="
 https://www.linkedin.com/in/anaclaragf/
-"><img style="border-radius: 50%;" src="
-https://avatars.githubusercontent.com/u/71611075?v=4
-" width="100px;" alt=""/><br /><sub><b>Ana Clara Farah</b></sub></a><br /><a href="
+"><img style="border-radius: 50%;" src="./src/images/readme/ana-clara.jpg" width="100px;" alt=""/><br /><sub><b>Ana Clara Farah</b></sub></a><br /><a href="
 https://github.com/anaclara-gf
 " title="GitHub">👩‍💻</a></td>
 
 <td align="center"><a href="
 https://www.linkedin.com/in/camilabalieiro/
-"><img style="border-radius: 50%;" src="
-https://avatars.githubusercontent.com/u/71615963?v=4
-" width="100px;" alt=""/><br /><sub><b>Camila Oliveira</b></sub></a><br /><a href="
+"><img style="border-radius: 50%;" src="./src/images/readme/camila.jpg" width="100px;" alt=""/><br /><sub><b>Camila Oliveira</b></sub></a><br /><a href="
 https://github.com/cbalieiro
 " title="GitHub">👩‍💻</a></td>
 
 <td align="center"><a href="
 https://www.linkedin.com/in/crissmantovani/
-"><img style="border-radius: 50%;" src="
-https://avatars.githubusercontent.com/u/71425220?v=4
-" width="100px;" alt=""/><br /><sub><b>Cristina Mantovani</b></sub></a><br /><a href="
+"><img style="border-radius: 50%;" src="./src/images/readme/cris.png" width="100px;" alt=""/><br /><sub><b>Cristina Mantovani</b></sub></a><br /><a href="
 https://github.com/crismantovani
 " title="GitHub">👩‍💻</a></td>
 
 <td align="center"><a href="
 https://www.linkedin.com/in/dunia-ghazzaoui/
-"><img style="border-radius: 50%;" src="
-https://avatars.githubusercontent.com/u/67087362?v=4
-" width="100px;" alt=""/><br /><sub><b>Dunia Ghazzaoui</b></sub></a><br /><a href="
+"><img style="border-radius: 50%;" src="./src/images/readme/dunia.jpg" width="100px;" alt=""/><br /><sub><b>Dunia Ghazzaoui</b></sub></a><br /><a href="
 https://github.com/dunia07
 " title="GitHub">👩‍💻</a></td>
 
 <td align="center"><a href="
 https://www.linkedin.com/in/kauanaagostini/
-"><img style="border-radius: 50%;" src="
-https://avatars.githubusercontent.com/u/71272642?v=4
-" width="100px;" alt=""/><br /><sub><b>Kauana Agostini</b></sub></a><br /><a href="
+"><img style="border-radius: 50%;" src="./src/images/readme/kauana.jpg" width="100px;" alt=""/><br /><sub><b>Kauana Agostini</b></sub></a><br /><a href="
 https://github.com/kauanaagostini
 " title="GitHub">👩‍💻</a></td>
 
 <td align="center"><a href="
 https://www.linkedin.com/in/lucila-xavier-da-silva/
-"><img style="border-radius: 50%;" src="
-https://avatars.githubusercontent.com/u/57038945?v=4
-" width="100px;" alt=""/><br /><sub><b>Lucila Xavier</b></sub></a><br /><a href="
+"><img style="border-radius: 50%;" src="./src/images/readme/lucila.png" width="100px;" alt=""/><br /><sub><b>Lucila Xavier</b></sub></a><br /><a href="
 https://github.com/Lucilaxavie
 " title="GitHub">👩‍💻</a></td>
     
