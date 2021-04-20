@@ -10,11 +10,11 @@
 - [4.Planejamento](#4-planejamento)
   - [4.2 Protótipos](#42-protótipos)
 - [5. Desenvolvimento](#5-desenvolvimento)
-  - [5.2 Interface Final](#52-interface-final)
-- [6. Releases](#6-releases)
-- [7. Tecnologias](#️7-tecnologias)
-- [8. Agradecimento](#8-agradecimento)
-- [9. Desenvolvedoras](#9-desenvolvedoras)
+- [6. Interface Final](#6-interface-final)
+- [7. Releases](#7-releases)
+- [8. Tecnologias](#️8-tecnologias)
+- [9. Agradecimentos](#9-agradecimentos)
+- [10. Desenvolvedoras](#10-desenvolvedoras)
 
 ***
 ## 1. Desafio 🎯
@@ -167,7 +167,7 @@ Nossas próximas features são:
 <p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
 
-## ⚙️ Tecnologias
+## 8. Tecnologias ⚙️
 
 Utilizamos as seguintes ferramentas:
 
@@ -199,7 +199,7 @@ Enjoy 👊
 
 <p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-## 8. Agradecimentos 🙌
+## 9. Agradecimentos 🙌
 
 Inicialmente gostaríamos de agradecer a **Avanade**, pela confiança e pelo apoio dado durante todo o tempo de hackaton.
 Nossa equipe ficou extasiada com o desafio proposto por vocês.
@@ -211,7 +211,7 @@ Não menos importante gostaríamos de agradecer a todas as colegas de código, e
 
 <p align='right'><a href='#locker-face'>Voltar ao topo</a></p>
 
-## 9. Desenvolvedoras 👩‍💻
+## 10. Desenvolvedoras 👩‍💻
   <div align="center">
     <img src="https://media.giphy.com/media/23is0rmCx5UlBoNxsZ/giphy.gif" width='500px' height='280px' frameBorder="0" allowFullScreen>
     </img>
